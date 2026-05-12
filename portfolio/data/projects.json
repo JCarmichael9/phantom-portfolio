@@ -1,0 +1,205 @@
+{
+  "developer": {
+    "name": "James Carmichael",
+    "title": "Phantom Thief of Web Development",
+    "program": "Web Design Pathway Program",
+    "tagline": "Stealing hearts through code since 2022",
+    "bio": "A passionate web developer who discovered their calling in high school. Through three years of learning, failing, and growing, I've built everything from simple HTML pages to full-stack experiences. The web is my canvas, code is my paint.",
+    "interests": ["UI/UX Design", "Motion Graphics", "Game Design", "Music Production", "Photography"],
+    "stats": {
+      "yearsInProgram": 3,
+      "projectsCompleted": 24,
+      "languagesLearned": 8,
+      "hoursCoded": 1200,
+      "coffeesDrunk": 340
+    },
+    "skills": [
+      { "name": "HTML/CSS", "level": 95 },
+      { "name": "JavaScript", "level": 88 },
+      { "name": "Vue.js", "level": 80 },
+      { "name": "UI/UX Design", "level": 85 },
+      { "name": "Responsive Design", "level": 90 },
+      { "name": "GSAP/Animation", "level": 78 },
+      { "name": "Git/GitHub", "level": 82 },
+      { "name": "Figma", "level": 75 }
+    ],
+    "social": {
+      "github": "https://github.com",
+      "linkedin": "https://linkedin.com",
+      "email": "alex@example.com"
+    }
+  },
+  "saveFiles": [
+    {
+      "id": 1,
+      "year": "Sophomore Year",
+      "subtitle": "The Beginning",
+      "lastPlayed": "June 2024",
+      "completion": 33,
+      "level": 12,
+      "icon": "🌱",
+      "color": "#00ff88"
+    },
+    {
+      "id": 2,
+      "year": "Junior Year",
+      "subtitle": "Rising Action",
+      "lastPlayed": "June 2025",
+      "completion": 66,
+      "level": 28,
+      "icon": "⚡",
+      "color": "#ff6b35"
+    },
+    {
+      "id": 3,
+      "year": "Senior Year",
+      "subtitle": "The Masterwork",
+      "lastPlayed": "June 2026",
+      "completion": 99,
+      "level": 47,
+      "icon": "👑",
+      "color": "#ff0033"
+    },
+    {
+      "id": 4,
+      "year": "UNKNOWN ROUTE",
+      "subtitle": "???",
+      "lastPlayed": "???",
+      "completion": "???",
+      "level": "???",
+      "icon": "🔮",
+      "color": "#9b59b6"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "HTML Foundations Blog",
+      "year": 2024,
+      "yearLabel": "Sophomore",
+      "description": "My very first web project — a personal blog built from scratch using pure HTML and CSS. Learned the fundamentals of web structure and visual design.",
+      "technologies": ["HTML5", "CSS3"],
+      "image": "images/project-placeholder.svg",
+      "projectLink": "#",
+      "reflection": "This was where it all began. I remember staring at a blank HTML file wondering what to type. By the end, I had something I was genuinely proud of.",
+      "skillsLearned": ["Semantic HTML", "CSS Box Model", "Typography", "Color Theory"],
+      "featured": false
+    },
+    {
+      "id": 2,
+      "title": "Responsive Photography Portfolio",
+      "year": 2024,
+      "yearLabel": "Sophomore",
+      "description": "A responsive photography showcase site built with CSS Grid and Flexbox. My first serious attempt at mobile-first design.",
+      "technologies": ["HTML5", "CSS3", "Flexbox", "CSS Grid"],
+      "image": "images/project-placeholder.svg",
+      "projectLink": "#",
+      "reflection": "Learning that websites needed to work on phones changed everything for me. Responsive design felt like a superpower.",
+      "skillsLearned": ["CSS Grid", "Flexbox", "Media Queries", "Mobile-First Design"],
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title": "JavaScript Calculator",
+      "year": 2024,
+      "yearLabel": "Sophomore",
+      "description": "An interactive calculator app — my introduction to JavaScript programming and DOM manipulation.",
+      "technologies": ["HTML5", "CSS3", "JavaScript"],
+      "image": "images/project-placeholder.svg",
+      "projectLink": "#",
+      "reflection": "The moment my calculator worked for the first time, I felt like a real programmer. It was magical.",
+      "skillsLearned": ["JavaScript Basics", "DOM Manipulation", "Event Listeners", "Functions"],
+      "featured": false
+    },
+    {
+      "id": 4,
+      "title": "Weather Dashboard App",
+      "year": 2025,
+      "yearLabel": "Junior",
+      "description": "A real-time weather application using the OpenWeather API. My first experience with async JavaScript and API integration.",
+      "technologies": ["HTML5", "CSS3", "JavaScript", "REST API", "Fetch API"],
+      "image": "images/project-placeholder.svg",
+      "projectLink": "#",
+      "reflection": "Working with external APIs for the first time felt like unlocking a cheat code. Suddenly my apps could talk to the real world.",
+      "skillsLearned": ["API Integration", "Async/Await", "JSON", "Error Handling"],
+      "featured": true
+    },
+    {
+      "id": 5,
+      "title": "Vue.js Task Manager",
+      "year": 2025,
+      "yearLabel": "Junior",
+      "description": "A full-featured task management app built with Vue.js — complete with filtering, categories, and local storage persistence.",
+      "technologies": ["Vue.js", "CSS3", "JavaScript", "LocalStorage"],
+      "image": "images/project-placeholder.svg",
+      "projectLink": "#",
+      "reflection": "Vue.js completely changed how I thought about building interfaces. Reactive data felt like magic at first.",
+      "skillsLearned": ["Vue.js", "Component Architecture", "Reactive Data", "State Management"],
+      "featured": true
+    },
+    {
+      "id": 6,
+      "title": "E-Commerce Mockup",
+      "year": 2025,
+      "yearLabel": "Junior",
+      "description": "A complete e-commerce UI mockup with product pages, cart functionality, and checkout flow.",
+      "technologies": ["HTML5", "CSS3", "JavaScript", "Bootstrap", "Vue.js"],
+      "image": "images/project-placeholder.svg",
+      "projectLink": "#",
+      "reflection": "This project taught me the importance of UX thinking. Good design isn't just about looks — it's about how things work.",
+      "skillsLearned": ["Bootstrap", "UI/UX Design", "Component Design", "User Flow"],
+      "featured": false
+    },
+    {
+      "id": 7,
+      "title": "This Portfolio",
+      "year": 2026,
+      "yearLabel": "Senior",
+      "description": "The one you're looking at right now. A Persona 5-inspired interactive portfolio experience built as my senior capstone project.",
+      "technologies": ["HTML5", "CSS3", "JavaScript", "Vue.js", "GSAP", "Bootstrap"],
+      "image": "images/project-placeholder.svg",
+      "projectLink": "#",
+      "reflection": "Building this felt like everything I'd learned coming together. Every challenge from the past three years prepared me for this moment.",
+      "skillsLearned": ["GSAP Animation", "Advanced Vue.js", "Creative Direction", "Performance Optimization"],
+      "featured": true
+    },
+    {
+      "id": 8,
+      "title": "Music Visualizer",
+      "year": 2026,
+      "yearLabel": "Senior",
+      "description": "An interactive audio visualizer using the Web Audio API with custom canvas animations.",
+      "technologies": ["JavaScript", "Web Audio API", "Canvas API", "CSS3"],
+      "image": "images/project-placeholder.svg",
+      "projectLink": "#",
+      "reflection": "Combining my love of music and programming felt deeply personal. This project represents who I am beyond just code.",
+      "skillsLearned": ["Web Audio API", "Canvas API", "Math/Trigonometry", "Creative Coding"],
+      "featured": true
+    }
+  ],
+  "gallery": [
+    { "title": "Wireframe Collection", "category": "Process", "image": "images/gallery-placeholder.svg" },
+    { "title": "Color Explorations", "category": "Design", "image": "images/gallery-placeholder.svg" },
+    { "title": "Typography Studies", "category": "Design", "image": "images/gallery-placeholder.svg" },
+    { "title": "UI Component Library", "category": "Development", "image": "images/gallery-placeholder.svg" },
+    { "title": "Accessibility Testing", "category": "Process", "image": "images/gallery-placeholder.svg" },
+    { "title": "Mobile Mockups", "category": "Design", "image": "images/gallery-placeholder.svg" }
+  ],
+  "reflection": {
+    "overall": "Three years ago, I opened a text editor for the first time and typed my first HTML tag. I had no idea that simple moment would reshape who I am. Web design taught me that creativity and logic aren't opposites — they're partners. Every bug I fixed made me more patient. Every design I iterated made me more perceptive. Every project I shipped made me more confident.",
+    "challenges": "The hardest moments came from imposter syndrome. Looking at professional websites and thinking 'I'll never be that good.' But challenges became teachers. Every 'why isn't this working' became a lesson. Every broken layout became a puzzle worth solving.",
+    "favorites": "My favorite memory is staying up until 3am to finish a project, not because I had to, but because I genuinely couldn't stop. That's when I knew web design wasn't just a class — it was a calling.",
+    "transformation": "Web design changed how I see everything. Every website I visit, I notice the typography, the spacing, the hover interactions. It's like getting a new pair of eyes. I can't unsee design anymore, and I wouldn't want to."
+  },
+  "futurePlans": {
+    "college": "Planning to study Computer Science or Interactive Media Design at a 4-year university.",
+    "career": "Aspiring to become a UI/UX engineer — someone who bridges the gap between beautiful design and functional code.",
+    "goals": [
+      "Intern at a tech company during freshman year",
+      "Build and launch a real product by junior year",
+      "Contribute to open source projects",
+      "Eventually start my own design studio"
+    ],
+    "message": "Web design showed me that the internet is a creative medium as expressive as any art form. I want to spend my life making it more beautiful, more accessible, and more human."
+  }
+}

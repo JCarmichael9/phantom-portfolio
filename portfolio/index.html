@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Senior Portfolio — Web Design Pathway Program — A Phantom Thief of Web Development" />
+  <title>PHANTOM PORTFOLIO — James Carmichael</title>
+
+  <!-- ══ Fonts ══ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- ══ Bootstrap CSS (base only, heavily overridden) ══ -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous"
+  />
+
+  <!-- ══ Main CSS ══ -->
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body class="scanlines">
+
+  <!-- ══════════════════════════════════════════════════════════
+       CUSTOM CURSOR
+  ══════════════════════════════════════════════════════════ -->
+  <div id="cursor"></div>
+  <div id="cursor-trail"></div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       GLOBAL GLITCH OVERLAY
+  ══════════════════════════════════════════════════════════ -->
+  <div class="glitch-overlay" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       ANIMATED BACKGROUND (persistent, behind all screens)
+  ══════════════════════════════════════════════════════════ -->
+  <div class="bg-animated" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SCREEN 1: STARTUP / CONNECT
+  ══════════════════════════════════════════════════════════ -->
+  <section id="screen-startup" class="screen" role="main" aria-label="Connect to network prompt">
+
+    <!-- Corner decorations -->
+    <div class="startup-corner-tl" aria-hidden="true"></div>
+    <div class="startup-corner-br" aria-hidden="true"></div>
+
+    <div style="text-align:center; position:relative; z-index:5">
+
+      <!-- Badge -->
+      <div class="startup-badge">WEB DESIGN PATHWAY PROGRAM // SENIOR CAPSTONE</div>
+
+      <!-- Title -->
+      <div class="startup-title-wrap">
+        <h1 class="startup-title" data-text="PHANTOM">PHANTOM</h1>
+        <div class="startup-sub">PORTFOLIO EXPERIENCE v3.0</div>
+      </div>
+
+      <div class="startup-divider"></div>
+
+      <!-- Prompt -->
+      <p class="startup-prompt">Connect to Network?</p>
+
+      <!-- Buttons -->
+      <div class="startup-buttons">
+        <button id="btn-yes" class="startup-btn startup-btn-yes" aria-label="Yes, connect to network">YES</button>
+        <button id="btn-no"  class="startup-btn startup-btn-no"  aria-label="No, do not connect">NO</button>
+      </div>
+
+      <!-- NO response message -->
+      <div id="no-response" style="
+        display:none;
+        margin-top:20px;
+        font-family:var(--font-mono);
+        font-size:12px;
+        color:var(--red);
+        letter-spacing:0.2em;
+        animation: pulse-opacity 0.5s ease infinite;
+      "></div>
+
+      <!-- Loading bar (shown during connection sequence) -->
+      <div id="startup-loading" class="startup-loading">
+        <div id="loading-text" class="loading-text">CONNECTING TO NETWORK...</div>
+        <div class="loading-bar-wrap">
+          <div id="loading-bar-fill" class="loading-bar-fill"></div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- /screen-startup -->
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SCREEN 2: INTRO CINEMATIC
+  ══════════════════════════════════════════════════════════ -->
+  <section id="screen-intro" class="screen" aria-label="Intro cinematic">
+
+    <!-- Skip button -->
+    <button id="intro-skip" class="intro-skip-btn" aria-label="Skip intro">SKIP ▶</button>
+
+    <!-- Panel 1: Name -->
+    <div id="panel-1" class="intro-panel">
+      <div class="panel-slash" aria-hidden="true"></div>
+      <div class="panel-content">
+        <span class="panel-word" style="font-size:clamp(50px,10vw,120px)">ALEX</span>
+        <span class="panel-word" style="font-size:clamp(50px,10vw,120px)">RIVERA</span>
+      </div>
+      <div class="panel-number" aria-hidden="true">01</div>
+    </div>
+
+    <!-- Panel 2: Role (red background) -->
+    <div id="panel-2" class="intro-panel">
+      <div class="panel-slash" aria-hidden="true"></div>
+      <div class="panel-content panel-2-text">
+        <span class="panel-word" style="font-size:clamp(50px,10vw,120px)">PHANTOM</span>
+        <span class="panel-word" style="font-size:clamp(50px,10vw,120px)">THIEF</span>
+        <div class="panel-small">OF WEB DEVELOPMENT</div>
+      </div>
+      <div class="panel-number" aria-hidden="true">02</div>
+    </div>
+
+    <!-- Panel 3: Program -->
+    <div id="panel-3" class="intro-panel">
+      <div class="panel-slash" aria-hidden="true"></div>
+      <div class="panel-content">
+        <span class="panel-word" style="font-size:clamp(36px,7vw,90px)">WEB DESIGN</span>
+        <span class="panel-word" style="font-size:clamp(36px,7vw,90px)">PATHWAY</span>
+        <div class="panel-small">PROGRAM</div>
+      </div>
+      <div class="panel-number" aria-hidden="true">03</div>
+    </div>
+
+    <!-- Panel 4: Senior Portfolio -->
+    <div id="panel-4" class="intro-panel">
+      <div class="panel-slash" aria-hidden="true"></div>
+      <div class="panel-content panel-4-text">
+        <span class="panel-word" style="font-size:clamp(50px,9vw,110px)">SENIOR</span>
+        <span class="panel-word" style="font-size:clamp(50px,9vw,110px)">PORTFOLIO</span>
+        <div class="panel-small" style="color:var(--white)">2022 — 2026</div>
+      </div>
+      <div class="panel-number" aria-hidden="true">04</div>
+    </div>
+
+    <!-- Panel 5: Tagline -->
+    <div id="panel-5" class="intro-panel">
+      <div class="panel-slash" aria-hidden="true"></div>
+      <div class="panel-content">
+        <span class="panel-word" style="font-size:clamp(40px,8vw,100px)">THE STORY</span>
+        <span class="panel-word red" style="font-size:clamp(40px,8vw,100px)">OF GROWTH</span>
+        <div class="panel-small">THREE YEARS IN THE MAKING</div>
+      </div>
+      <div class="panel-number" aria-hidden="true">05</div>
+    </div>
+
+    <!-- Panel Final: Begin -->
+    <div id="panel-final" class="intro-panel">
+      <div class="panel-content">
+        <span class="panel-word red" style="font-size:clamp(70px,14vw,160px)">BEGIN</span>
+      </div>
+    </div>
+
+    <!-- Scrolling ticker at bottom -->
+    <div class="intro-ticker" aria-hidden="true">
+      <span class="intro-ticker-inner">
+        WEB DESIGN PATHWAY PROGRAM &nbsp;•&nbsp; SENIOR CAPSTONE &nbsp;•&nbsp; 3 YEARS &nbsp;•&nbsp; 24 PROJECTS &nbsp;•&nbsp; 1200 HOURS &nbsp;•&nbsp; THE PHANTOM THIEF OF WEB DEVELOPMENT &nbsp;•&nbsp; JAMES CARMICHAEL &nbsp;•&nbsp;&nbsp;
+      </span>
+    </div>
+
+  </section><!-- /screen-intro -->
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SCREEN 3: MAIN MENU
+  ══════════════════════════════════════════════════════════ -->
+  <section id="screen-menu" class="screen" role="navigation" aria-label="Main menu">
+
+    <div class="menu-bg-art" aria-hidden="true"></div>
+    <div class="menu-side-bar" aria-hidden="true"></div>
+
+    <nav class="menu-content">
+      <!-- Header -->
+      <div class="menu-header">
+        <div class="menu-header-label">PHANTOM PORTFOLIO</div>
+        <div class="menu-header-title">JAMES CARMICHAEL</div>
+      </div>
+
+      <!-- Menu Items -->
+      <button id="menu-play"    class="menu-item" aria-label="Play — view portfolio by year">
+        <span class="menu-item-index">01</span>
+        <span class="menu-item-label">PLAY</span>
+        <span class="menu-item-desc">SELECT YEAR</span>
+        <span class="menu-item-arrow">▶</span>
+        <div class="menu-item-bg" aria-hidden="true"></div>
+      </button>
+
+      <button id="menu-gallery" class="menu-item" aria-label="Gallery — design process and screenshots">
+        <span class="menu-item-index">02</span>
+        <span class="menu-item-label">GALLERY</span>
+        <span class="menu-item-desc">DESIGNS & PROCESS</span>
+        <span class="menu-item-arrow">▶</span>
+        <div class="menu-item-bg" aria-hidden="true"></div>
+      </button>
+
+      <button id="menu-stats"   class="menu-item" aria-label="Stats — developer statistics and skills">
+        <span class="menu-item-index">03</span>
+        <span class="menu-item-label">STATS</span>
+        <span class="menu-item-desc">SKILLS & DATA</span>
+        <span class="menu-item-arrow">▶</span>
+        <div class="menu-item-bg" aria-hidden="true"></div>
+      </button>
+
+      <button id="menu-about"   class="menu-item" aria-label="About — character profile and bio">
+        <span class="menu-item-index">04</span>
+        <span class="menu-item-label">ABOUT</span>
+        <span class="menu-item-desc">CHARACTER PROFILE</span>
+        <span class="menu-item-arrow">▶</span>
+        <div class="menu-item-bg" aria-hidden="true"></div>
+      </button>
+
+      <button id="menu-exit"    class="menu-item" aria-label="Exit reality — fun easter egg">
+        <span class="menu-item-index">05</span>
+        <span class="menu-item-label">EXIT REALITY</span>
+        <span class="menu-item-desc">???</span>
+        <span class="menu-item-arrow">▶</span>
+        <div class="menu-item-bg" aria-hidden="true"></div>
+      </button>
+
+      <div class="menu-bottom">
+        <div class="menu-time font-mono" style="font-size:11px;color:var(--grey)">
+          <span id="menu-clock">00:00:00</span>
+          &nbsp;|&nbsp;
+          USE ↑↓ OR MOUSE TO NAVIGATE &nbsp;|&nbsp; ENTER TO SELECT
+        </div>
+      </div>
+    </nav>
+
+    <!-- Decorative right side -->
+    <div class="menu-deco" aria-hidden="true">
+      <div class="menu-deco-text">PHANTOM</div>
+    </div>
+
+    <div class="menu-version" aria-hidden="true">v3.0 // SENIOR EDITION</div>
+
+  </section><!-- /screen-menu -->
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SCREEN 4: SAVE FILE SELECTION
+  ══════════════════════════════════════════════════════════ -->
+  <section id="screen-saves" class="screen" aria-label="Select portfolio year">
+
+    <div style="width:100%;max-width:900px">
+
+      <div class="saves-header">
+        <h2 class="saves-title">SELECT <span>FILE</span></h2>
+        <div class="saves-subtitle">CHOOSE YOUR TIMELINE — EACH YEAR A NEW CHAPTER</div>
+      </div>
+
+      <div class="saves-grid">
+
+        <!-- Save 1: Sophomore -->
+        <article class="save-card" data-save-id="1" role="button" tabindex="0" aria-label="Sophomore Year portfolio">
+          <div class="save-card-header">
+            <span class="save-slot">SAVE FILE 01</span>
+            <span class="save-icon">🌱</span>
+          </div>
+          <h3 class="save-title">Sophomore Year</h3>
+          <div class="save-subtitle">The Beginning</div>
+          <div class="save-meta">
+            <span>LAST PLAYED: JUNE 2024</span>
+            <span class="save-level" style="color:var(--green)">LV.12</span>
+          </div>
+          <div style="position:relative; padding-bottom:20px">
+            <div class="save-pct">33%</div>
+            <div class="save-progress-wrap">
+              <div class="save-progress-fill" style="--target:33%"></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Save 2: Junior -->
+        <article class="save-card" data-save-id="2" role="button" tabindex="0" aria-label="Junior Year portfolio">
+          <div class="save-card-header">
+            <span class="save-slot">SAVE FILE 02</span>
+            <span class="save-icon">⚡</span>
+          </div>
+          <h3 class="save-title">Junior Year</h3>
+          <div class="save-subtitle">Rising Action</div>
+          <div class="save-meta">
+            <span>LAST PLAYED: JUNE 2025</span>
+            <span class="save-level" style="color:var(--orange)">LV.28</span>
+          </div>
+          <div style="position:relative; padding-bottom:20px">
+            <div class="save-pct">66%</div>
+            <div class="save-progress-wrap">
+              <div class="save-progress-fill" style="--target:66%"></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Save 3: Senior -->
+        <article class="save-card" data-save-id="3" role="button" tabindex="0" aria-label="Senior Year portfolio">
+          <div class="save-card-header">
+            <span class="save-slot">SAVE FILE 03</span>
+            <span class="save-icon">👑</span>
+          </div>
+          <h3 class="save-title">Senior Year</h3>
+          <div class="save-subtitle">The Masterwork</div>
+          <div class="save-meta">
+            <span>LAST PLAYED: JUNE 2026</span>
+            <span class="save-level" style="color:var(--red)">LV.47</span>
+          </div>
+          <div style="position:relative; padding-bottom:20px">
+            <div class="save-pct">99%</div>
+            <div class="save-progress-wrap">
+              <div class="save-progress-fill" style="--target:99%"></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Save 4: Unknown Route -->
+        <article class="save-card unknown" data-save-id="4" role="button" tabindex="0" aria-label="Unknown Route — future plans">
+          <div class="save-card-header">
+            <span class="save-slot" style="color:var(--purple)">SAVE FILE 04</span>
+            <span class="save-icon">🔮</span>
+          </div>
+          <h3 class="save-title" style="color:var(--purple)">UNKNOWN ROUTE</h3>
+          <div class="save-subtitle">???</div>
+          <div class="save-meta">
+            <span>LAST PLAYED: ???</span>
+            <span class="save-level" style="color:var(--purple)">LV.???</span>
+          </div>
+          <div style="position:relative; padding-bottom:20px">
+            <div class="save-pct" style="color:var(--purple)">???</div>
+            <div class="save-progress-wrap">
+              <div class="save-progress-fill unknown"></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <button id="saves-back" class="save-back-btn" aria-label="Back to main menu">← BACK TO MENU</button>
+
+    </div>
+  </section><!-- /screen-saves -->
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SCREEN 5: MAIN CONTENT AREA (Portfolio sections)
+  ══════════════════════════════════════════════════════════ -->
+  <div id="screen-content" role="main">
+
+    <!-- ── Top Navigation ── -->
+    <header class="top-nav" role="navigation" aria-label="Portfolio navigation">
+      <div class="nav-logo">P<span>5</span></div>
+
+      <button class="nav-link" data-section="portfolio"  aria-label="View full portfolio">PORTFOLIO</button>
+      <button class="nav-link" data-section="featured"   aria-label="View featured projects">FEATURED</button>
+      <button class="nav-link" data-section="reflection" aria-label="View reflection">REFLECTION</button>
+      <button class="nav-link" data-section="future"     aria-label="View future plans">FUTURE</button>
+      <button class="nav-link" data-section="about"      aria-label="About me">ABOUT</button>
+
+      <button id="nav-back" class="nav-back back-to-menu" aria-label="Back to main menu">↩ MENU</button>
+    </header>
+
+    <!-- ── Section: Full Portfolio ── -->
+    <section id="section-portfolio" class="content-section" aria-label="Full portfolio">
+      <div class="section-eyebrow">FULL PORTFOLIO</div>
+      <h1 class="section-title">All <span>Projects</span></h1>
+
+      <!-- Vue renders project cards here, grouped by year -->
+      <div id="vue-portfolio">
+        <div style="font-family:var(--font-mono);color:var(--grey);font-size:12px;padding:20px 0">
+          Loading projects...
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Section: Featured Projects ── -->
+    <section id="section-featured" class="content-section" aria-label="Featured projects">
+      <div class="section-eyebrow">HIGHLIGHTS</div>
+      <h1 class="section-title">Featured <span>Work</span></h1>
+
+      <!-- Vue renders featured gallery here -->
+      <div id="vue-featured">
+        <div style="font-family:var(--font-mono);color:var(--grey);font-size:12px;padding:20px 0">
+          Loading featured projects...
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Section: Reflection ── -->
+    <section id="section-reflection" class="content-section" aria-label="Reflection">
+      <div class="section-eyebrow">LOOKING BACK</div>
+      <h1 class="section-title">My <span>Reflection</span></h1>
+
+      <!-- Vue renders reflection blocks here -->
+      <div id="vue-reflection">
+        <div style="font-family:var(--font-mono);color:var(--grey);font-size:12px;padding:20px 0">
+          Loading reflection...
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Section: Future Plans ── -->
+    <section id="section-future" class="content-section" aria-label="Future plans">
+      <div class="section-eyebrow">WHAT COMES NEXT</div>
+      <h1 class="section-title">Future <span>Plans</span></h1>
+
+      <!-- Vue renders future content here -->
+      <div id="vue-future">
+        <div style="font-family:var(--font-mono);color:var(--grey);font-size:12px;padding:20px 0">
+          Loading future plans...
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Section: About Me ── -->
+    <section id="section-about" class="content-section" aria-label="About me">
+      <div class="section-eyebrow">CHARACTER PROFILE</div>
+      <h1 class="section-title">About <span>Me</span></h1>
+
+      <!-- Vue renders character profile here -->
+      <div id="vue-about">
+        <div style="font-family:var(--font-mono);color:var(--grey);font-size:12px;padding:20px 0">
+          Loading profile...
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Section: Gallery ── -->
+    <section id="section-gallery" class="content-section" aria-label="Gallery">
+      <div class="section-eyebrow">DESIGN ARCHIVE</div>
+      <h1 class="section-title">Gallery</h1>
+
+      <!-- Vue renders gallery with filter here -->
+      <div id="vue-gallery">
+        <div style="font-family:var(--font-mono);color:var(--grey);font-size:12px;padding:20px 0">
+          Loading gallery...
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Section: Stats ── -->
+    <section id="section-stats" class="content-section" aria-label="Developer stats">
+      <div class="section-eyebrow">PLAYER ANALYTICS</div>
+      <h1 class="section-title">Developer <span>Stats</span></h1>
+
+      <!-- Vue renders stats dashboard here -->
+      <div id="vue-stats">
+        <div style="font-family:var(--font-mono);color:var(--grey);font-size:12px;padding:20px 0">
+          Loading stats...
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /screen-content -->
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SCREEN 6: UNKNOWN ROUTE
+  ══════════════════════════════════════════════════════════ -->
+  <div id="screen-unknown" role="main" aria-label="Unknown Route - Future">
+
+    <div class="unknown-hero">
+      <div class="unknown-eyebrow">UNKNOWN ROUTE // FILE_04</div>
+
+      <h1 class="unknown-title">The <span style="color:var(--purple)">Future</span></h1>
+
+      <p class="unknown-message">
+        This isn't a save file — it's a blank page. High school taught me how to code,
+        how to design, how to think. But the most important thing it taught me is that
+        I've only just started. The best work is still ahead.
+      </p>
+
+      <!-- Vue renders future goals here -->
+      <div id="vue-unknown"></div>
+
+      <div style="margin-bottom:30px;max-width:500px;width:100%;text-align:left">
+        <div class="section-eyebrow" style="margin-bottom:16px">WHAT I CARRY FORWARD</div>
+        <p style="font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,0.6);line-height:1.8">
+          Three years of problem-solving. The confidence that I can figure things out.
+          A portfolio that proves it. A community of designers and developers who
+          showed me what's possible. And the knowledge that every great website
+          started as a blank file — just like this one did.
+        </p>
+      </div>
+
+      <button id="unknown-back" class="unknown-back" aria-label="Back to save selection">← RETURN TO SELECT</button>
+    </div>
+
+  </div><!-- /screen-unknown -->
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SCREEN 7: EXIT REALITY (Easter Egg)
+  ══════════════════════════════════════════════════════════ -->
+  <section id="screen-exit" class="screen" aria-label="Exit reality warning">
+
+    <div class="exit-warning-box" role="alertdialog" aria-live="assertive">
+      <div class="exit-icon" aria-hidden="true">⚠</div>
+
+      <h2 class="exit-title">EXITING REALITY</h2>
+
+      <p class="exit-message">
+        Attempting to leave the Phantom Portfolio.<br/>
+        All unsaved progress will be lost.<br/>
+        (Just kidding. There's nothing to save.)<br/>
+        Redirecting to main menu in 3 seconds...
+      </p>
+
+      <div class="exit-progress">
+        <div class="exit-progress-fill"></div>
+      </div>
+
+      <button class="exit-cancel-btn back-to-menu" aria-label="Cancel exit and return to menu">
+        CANCEL — RETURN TO MENU
+      </button>
+    </div>
+
+  </section><!-- /screen-exit -->
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       PROJECT DETAIL MODAL
+  ══════════════════════════════════════════════════════════ -->
+  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Project details">
+
+    <div class="modal-box">
+      <button id="modal-close" class="modal-close" aria-label="Close modal">✕</button>
+
+      <img id="modal-img" src="" alt="" class="modal-img" />
+
+      <div class="modal-body">
+        <h2 id="modal-title" class="modal-title"></h2>
+        <div id="modal-year" class="modal-year"></div>
+
+        <p id="modal-desc" class="modal-desc"></p>
+
+        <div class="modal-skills-title">TECHNOLOGIES USED</div>
+        <div id="modal-techs" class="modal-skills"></div>
+
+        <div class="modal-skills-title" style="margin-top:20px">SKILLS LEARNED</div>
+        <div id="modal-skills" class="modal-skills"></div>
+
+        <blockquote id="modal-reflection" class="modal-reflection"></blockquote>
+
+        <a id="modal-link" href="#" target="_blank" class="modal-action-link">
+          VIEW PROJECT ↗
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /modal-overlay -->
+
+
+  <!-- ══ Scripts ══════════════════════════════════════════════ -->
+
+  <!-- Bootstrap JS (for utility; mostly unused given custom UI) -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Vue.js 3 (CDN) -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+
+  <!-- GSAP (with all plugins) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Main Application -->
+  <script src="js/app.js"></script>
+
+  <!-- Audio placeholder note:
+       Add your audio files to /audio/ and uncomment this section.
+       Audio can only start after user interaction (YES button click).
+
+  <audio id="bgm" loop>
+    <source src="audio/background.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="sfx-hover">
+    <source src="audio/hover.wav" type="audio/wav">
+  </audio>
+  <audio id="sfx-click">
+    <source src="audio/click.wav" type="audio/wav">
+  </audio>
+  -->
+
+</body>
+</html>

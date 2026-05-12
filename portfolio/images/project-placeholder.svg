@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0a0a"/>
+      <stop offset="100%" style="stop-color:#2d0a0a"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="250" fill="url(#bg)"/>
+  <rect x="20" y="20" width="360" height="210" fill="none" stroke="#ff0033" stroke-width="1" stroke-dasharray="8,4" opacity="0.5"/>
+  <polygon points="185,95 215,95 220,125 200,135 180,125" fill="none" stroke="#ff0033" stroke-width="1.5" opacity="0.8"/>
+  <circle cx="200" cy="115" r="3" fill="#ff0033"/>
+  <line x1="200" y1="60" x2="200" y2="80" stroke="#ff0033" stroke-width="1" opacity="0.6"/>
+  <line x1="200" y1="150" x2="200" y2="170" stroke="#ff0033" stroke-width="1" opacity="0.6"/>
+  <line x1="155" y1="115" x2="175" y2="115" stroke="#ff0033" stroke-width="1" opacity="0.6"/>
+  <line x1="225" y1="115" x2="245" y2="115" stroke="#ff0033" stroke-width="1" opacity="0.6"/>
+  <text x="200" y="205" font-family="monospace" font-size="11" fill="#ff0033" text-anchor="middle" opacity="0.7">PROJECT SCREENSHOT</text>
+  <text x="200" y="220" font-family="monospace" font-size="9" fill="#666" text-anchor="middle">Replace with actual image</text>
+</svg>

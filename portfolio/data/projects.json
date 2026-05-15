@@ -1,11 +1,11 @@
 {
   "developer": {
     "name": "James Carmichael",
-    "title": "Phantom Thief of Web Development",
-    "program": "Web Design Pathway Program",
-    "tagline": "Stealing hearts through code since 2022",
-    "bio": "A passionate web developer who discovered their calling in high school. Through three years of learning, failing, and growing, I've built everything from simple HTML pages to full-stack experiences. The web is my canvas, code is my paint.",
-    "interests": ["UI/UX Design", "Motion Graphics", "Game Design", "Music Production", "Photography"],
+    "title": "Psychology Major & Aspiring Criminal Defense Attorney",
+    "program": "Kean University — Psychology Major",
+    "tagline": "Full Ride Scholarship | Future Law School Candidate",
+    "bio": "A psychology major at Kean University with a passion for understanding the human mind and defending those who need it most. After completing my degree on a full ride scholarship, I plan to pursue law school and become a criminal defense attorney. My background in web development has taught me problem-solving, attention to detail, and the discipline to master complex systems — skills that will serve me well in law.",
+    "interests": ["Criminal Law", "Psychology", "Human Behavior", "Social Justice", "Advocacy"],
     "stats": {
       "yearsInProgram": 3,
       "projectsCompleted": 24,
@@ -186,20 +186,20 @@
     { "title": "Mobile Mockups", "category": "Design", "image": "images/gallery-placeholder.svg" }
   ],
   "reflection": {
-    "overall": "Three years ago, I opened a text editor for the first time and typed my first HTML tag. I had no idea that simple moment would reshape who I am. Web design taught me that creativity and logic aren't opposites — they're partners. Every bug I fixed made me more patient. Every design I iterated made me more perceptive. Every project I shipped made me more confident.",
-    "challenges": "The hardest moments came from imposter syndrome. Looking at professional websites and thinking 'I'll never be that good.' But challenges became teachers. Every 'why isn't this working' became a lesson. Every broken layout became a puzzle worth solving.",
-    "favorites": "My favorite memory is staying up until 3am to finish a project, not because I had to, but because I genuinely couldn't stop. That's when I knew web design wasn't just a class — it was a calling.",
-    "transformation": "Web design changed how I see everything. Every website I visit, I notice the typography, the spacing, the hover interactions. It's like getting a new pair of eyes. I can't unsee design anymore, and I wouldn't want to."
+    "overall": "Three years in the Web Design Pathway Program taught me discipline, creativity, and problem-solving—skills that have become the foundation for my journey in psychology and my pursuit of criminal law. Web design taught me that understanding user needs is essential, and criminal defense requires understanding the human experiences, fears, and rights of my future clients. Every bug I fixed made me more patient; every client I'll defend will deserve that same patience and dedication.",
+    "challenges": "The hardest moments came from imposter syndrome and wrestling with complex problems. But I learned that challenges are just information waiting to be understood. This mindset is exactly what I'll need in criminal law—where understanding human behavior, legal precedent, and the justice system's complexities requires the same problem-solving approach I developed in web design.",
+    "favorites": "My favorite memory is the moment I realized I could create something meaningful that affects how people interact with the world. Now, I'm driven by an even deeper purpose: to defend people's constitutional rights and navigate the criminal justice system with compassion and expertise.",
+    "transformation": "Web design and psychology have given me a unique perspective: the ability to understand systems (both code and human behavior) and create meaningful change. I'm no longer just building interfaces—I'm preparing to defend justice."
   },
   "futurePlans": {
-    "college": "Planning to study Computer Science or Interactive Media Design at a 4-year university.",
-    "career": "Aspiring to become a UI/UX engineer — someone who bridges the gap between beautiful design and functional code.",
+    "college": "Majoring in Psychology at Kean University on a full ride scholarship for 4 years.",
+    "career": "Planning to attend law school to earn my Juris Doctor degree and become a criminal defense attorney.",
     "goals": [
-      "Intern at a tech company during freshman year",
-      "Build and launch a real product by junior year",
-      "Contribute to open source projects",
-      "Eventually start my own design studio"
+      "Complete my psychology degree with honors",
+      "Prepare for and excel on the LSAT",
+      "Attend a top-tier law school",
+      "Build a career defending clients' rights"
     ],
-    "message": "Web design showed me that the internet is a creative medium as expressive as any art form. I want to spend my life making it more beautiful, more accessible, and more human."
+    "message": "My passion is understanding the human mind and using that knowledge to defend those who need it most. Criminal law allows me to combine psychology and advocacy to make a real difference in people's lives during their most difficult moments."
   }
 }

@@ -485,6 +485,10 @@ body:hover #cursor { opacity: 1; }
   justify-content: flex-start;
 }
 
+#screen-menu:not(.active) {
+  pointer-events: none;
+}
+
 .menu-bg-art {
   position: absolute;
   inset: 0;
@@ -916,6 +920,7 @@ body:hover #cursor { opacity: 1; }
 #screen-content.active {
   opacity: 1;
   pointer-events: all;
+  z-index: 85;
 }
 
 /* ── Top Navigation Bar ── */

@@ -209,6 +209,8 @@ function initStartup() {
     const msgEl = $('#no-response');
     if (msgEl) {
       msgEl.style.display = 'block';
+      msgEl.textContent = messages[0];
+      step = 1;
       const cycle = setInterval(() => {
         msgEl.textContent = messages[step % messages.length];
         step++;

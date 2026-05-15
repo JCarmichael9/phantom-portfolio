@@ -59,6 +59,11 @@ body {
   cursor: none;
 }
 
+/* Force custom cursor everywhere */
+* {
+  cursor: none !important;
+}
+
 /* ── Custom Cursor ── */
 #cursor {
   position: fixed;

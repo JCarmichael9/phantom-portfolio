@@ -272,7 +272,7 @@ function startIntroCinematic() {
   }
 
   // Panel 1: Name
-  animPanel('panel-1', ['ALEX', 'RIVERA'], null, '#000', '#fff', 1.0);
+  animPanel('panel-1', ['JAMES', 'CARMICHAEL'], null, '#000', '#fff', 1.0);
   // Panel 2: Role
   animPanel('panel-2', ['PHANTOM', 'THIEF'], 'OF WEB DEVELOPMENT', '#ff0033', '#000', 1.0);
   // Panel 3: Program

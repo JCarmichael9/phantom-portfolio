@@ -628,7 +628,13 @@ function initVueApp() {
             <h2 class="year-title">Sophomore Year</h2>
             <span class="year-level">LV.12 — June 2024</span>
           </div>
-          <div class="projects-grid">
+          <div v-if="sophomoreProjects.length === 0" style="text-align:center;padding:60px 40px;font-family:var(--font-mono);color:var(--grey)">
+            <div style="font-size:64px;margin-bottom:20px;color:var(--red)">⚠</div>
+            <div style="font-size:20px;letter-spacing:0.2em;margin-bottom:12px">ERROR 404</div>
+            <div style="font-size:14px;margin-bottom:20px">FILES COULD NOT BE FOUND</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5)">Archive data unavailable — early projects not preserved</div>
+          </div>
+          <div v-else class="projects-grid">
             <div v-for="project in sophomoreProjects" :key="project.id" class="project-card">
               <img :src="project.image" :alt="project.title" class="project-card-img" />
               <div class="project-card-body">
@@ -787,8 +793,8 @@ function initVueApp() {
             <div class="stat-label">Hours Coded</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number" :data-target="stats.coffeesDrunk">0</div>
-            <div class="stat-label">Coffees Consumed</div>
+            <div class="stat-number" :data-target="stats.energyDrinksConsumed">0</div>
+            <div class="stat-label">Energy Drinks Consumed</div>
           </div>
         </div>
 
@@ -913,7 +919,7 @@ function initVueApp() {
       };
     },
     template: `
-      <div class="reflection-content">
+      <div class="reflection-content" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;min-height:calc(100vh - 200px);align-content:center">
         <div class="reflection-block">
           <div class="reflection-topic">OVERALL REFLECTION</div>
           <p class="reflection-text">{{ ref.overall }}</p>
@@ -1068,7 +1074,7 @@ async function init() {
   const menuExit = $('#menu-exit');
 
   menuPlay?.addEventListener('click',    () => showSaveScreen());
-  menuGallery?.addEventListener('click', () => { triggerGlitch(); setTimeout(() => showContentScreen('gallery'), 300); });
+  menuGallery?.addEventListener('click', () => { triggerGlitch(); setTimeout(() => showContentScreen('portfolio'), 300); });
   menuStats?.addEventListener('click',   () => { triggerGlitch(); setTimeout(() => showContentScreen('stats'), 300); });
   menuAbout?.addEventListener('click',   () => { triggerGlitch(); setTimeout(() => showContentScreen('about'), 300); });
   menuExit?.addEventListener('click',    () => triggerExitReality());

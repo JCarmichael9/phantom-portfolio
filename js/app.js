@@ -123,7 +123,7 @@ function triggerGlitch() {
 // ── Background Music System ───────────────────────────────────
 const MUSIC = {
   tracks: Array.from({ length: 77 }, (_, i) =>
-    `/audios/persona/audio${i + 1}.mp3`
+    `audios/persona/audio${i + 1}.mp3`
   ),
   audio: null,
   lastIndex: -1,

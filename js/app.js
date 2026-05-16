@@ -174,7 +174,7 @@ function initStartup() {
       if (progress >= 100) {
         progress = 100;
         clearInterval(interval);
-        setTimeout(startIntroCinematic, 500);
+        setTimeout(playIntroVideo, 500);
       }
       loadingBar.style.width = progress + '%';
 
@@ -224,6 +224,53 @@ function initStartup() {
       }, 700);
     }
   });
+}
+
+// ── Intro Video ───────────────────────────────────────────────
+function playIntroVideo() {
+  showScreen('video');
+  
+  const video = $('#intro-video');
+  if (!video) {
+    // If video doesn't exist, skip to loading
+    setTimeout(showLoadingScreen, 300);
+    return;
+  }
+
+  // Play video
+  video.play().catch((err) => {
+    console.warn('[Phantom Portfolio] Video autoplay failed:', err);
+    setTimeout(showLoadingScreen, 300);
+  });
+
+  // Listen for video end
+  video.addEventListener('ended', () => {
+    triggerGlitch();
+    setTimeout(showLoadingScreen, 300);
+  }, { once: true });
+
+  // Fallback: if video takes too long (6 seconds max), skip to loading
+  setTimeout(() => {
+    if (!video.ended) {
+      video.pause();
+      triggerGlitch();
+      showLoadingScreen();
+    }
+  }, 6000);
+}
+
+// ── Loading Screen ────────────────────────────────────────────
+function showLoadingScreen() {
+  showScreen('loading');
+  
+  const progressFill = $('#loading-progress');
+  
+  // Animate the progress bar (already has 5s animation from CSS)
+  // After 5 seconds, transition to intro cinematic
+  setTimeout(() => {
+    triggerGlitch();
+    setTimeout(startIntroCinematic, 300);
+  }, 5000);
 }
 
 // ── Intro Cinematic ───────────────────────────────────────────

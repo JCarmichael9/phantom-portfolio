@@ -578,7 +578,7 @@
 
   <!-- ══ Scripts ══════════════════════════════════════════════ -->
 
-  <!-- Music skip button -->
+  <!-- Music controls — shown after cinematic starts -->
   <button id="music-skip-btn" aria-label="Skip to next track" style="
     display: none;
     position: fixed;
@@ -596,6 +596,24 @@
     transition: all 0.2s ease;
     backdrop-filter: blur(4px);
   ">♪ TRACK 1 ▶▶</button>
+
+  <button id="music-mute-btn" aria-label="Mute music" style="
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 140px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--grey);
+    background: rgba(0,0,0,0.7);
+    border: 1px solid var(--grey-dark);
+    padding: 6px 14px;
+    cursor: none;
+    letter-spacing: 0.2em;
+    z-index: 9990;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(4px);
+  ">♪ MUTE</button>
 
     <!-- Bootstrap JS (for utility; mostly unused given custom UI) -->
   <script

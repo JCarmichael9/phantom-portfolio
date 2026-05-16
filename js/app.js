@@ -131,6 +131,7 @@ const MUSIC = {
   ],
   audio: null,
   lastIndex: -1,
+  muted: false,
 };
 
 function pickRandomTrack() {
@@ -153,6 +154,11 @@ function startBackgroundMusic() {
     btn.onmouseenter = () => { btn.style.color = 'var(--white)'; btn.style.borderColor = 'var(--red)'; };
     btn.onmouseleave = () => { btn.style.color = 'var(--grey)'; btn.style.borderColor = 'var(--grey-dark)'; };
   }
+
+  const muteBtn = $('#music-mute-btn');
+  if (muteBtn) muteBtn.style.display = 'block';
+
+  audio.muted = MUSIC.muted;
 
   audio.volume = 0;
   audio.addEventListener('ended', () => startBackgroundMusic(), { once: true });
@@ -205,10 +211,32 @@ function updateMusicBtn() {
   btn.textContent = `♪ TRACK ${MUSIC.lastIndex + 1} ▶▶`;
 }
 
+function toggleMute() {
+  MUSIC.muted = !MUSIC.muted;
+  if (MUSIC.audio) {
+    MUSIC.audio.muted = MUSIC.muted;
+  }
+  const btn = $('#music-mute-btn');
+  if (!btn) return;
+  btn.textContent = MUSIC.muted ? '♪ UNMUTE' : '♪ MUTE';
+  btn.style.color = MUSIC.muted ? 'var(--red)' : 'var(--grey)';
+  btn.style.borderColor = MUSIC.muted ? 'var(--red)' : 'var(--grey-dark)';
+}
+
 function initMusicBtn() {
   const btn = $('#music-skip-btn');
-  if (!btn) return;
-  btn.addEventListener('click', skipToNextTrack);
+  if (btn) btn.addEventListener('click', skipToNextTrack);
+
+  const muteBtn = $('#music-mute-btn');
+  if (muteBtn) {
+    muteBtn.addEventListener('click', toggleMute);
+    muteBtn.onmouseenter = () => {
+      if (!MUSIC.muted) { muteBtn.style.color = 'var(--white)'; muteBtn.style.borderColor = 'var(--red)'; }
+    };
+    muteBtn.onmouseleave = () => {
+      if (!MUSIC.muted) { muteBtn.style.color = 'var(--grey)'; muteBtn.style.borderColor = 'var(--grey-dark)'; }
+    };
+  }
 }
 
 // ── Live Clock ────────────────────────────────────────────────

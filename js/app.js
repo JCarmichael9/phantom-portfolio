@@ -123,7 +123,7 @@ function triggerGlitch() {
 // ── Background Music System ───────────────────────────────────
 const MUSIC = {
   tracks: Array.from({ length: 77 }, (_, i) =>
-    `./audios/persona/audio${i + 1}.mp3`
+    `/audios/persona/audio${i + 1}.mp3`
   ),
   audio: null,
   lastIndex: -1,
@@ -249,7 +249,7 @@ function updateClock() {
 // ── Data Loading ──────────────────────────────────────────────
 async function loadData() {
   try {
-    const res = await fetch('data/projects.json');
+    const res = await fetch('/data/projects.json');
     APP.data = await res.json();
     console.log('[Phantom Portfolio] Data loaded ✓');
   } catch (err) {

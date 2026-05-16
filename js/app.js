@@ -226,53 +226,56 @@ function initStartup() {
   });
 }
 
-// ── Intro Video ───────────────────────────────────────────────
 function playIntroVideo() {
   showScreen('video');
-  
+
   const video = $('#intro-video');
   const skipBtn = $('#video-skip');
-  
+
   if (!video) {
-    // If video doesn't exist, skip to intro
     setTimeout(startIntroCinematic, 300);
     return;
   }
 
-  // Handler for skip/play toggle
-  function handleSkip() {
+  // IMPORTANT: force safe autoplay state
+  video.muted = true;
+  video.playsInline = true;
+  video.preload = "auto";
+
+  function goNext() {
     video.pause();
     triggerGlitch();
     setTimeout(startIntroCinematic, 300);
   }
 
-  // Skip button handler
   if (skipBtn) {
-    skipBtn.addEventListener('click', handleSkip);
+    skipBtn.onclick = goNext;
   }
 
-  // Spacebar handler - skip or play/pause
-  function handleSpacebar(e) {
-    if (e.code === 'Space' && $('#screen-video').classList.contains('active')) {
-      e.preventDefault();
-      if (video.paused) {
-        video.play();
-      } else {
-        handleSkip();
-      }
+  // FORCE PLAY (handles GitHub Pages autoplay restrictions)
+  const attemptPlay = async () => {
+    try {
+      await video.play();
+    } catch (err) {
+      console.warn("Autoplay blocked, waiting for interaction:", err);
+
+      // fallback: wait for ANY user input
+      const unlock = async () => {
+        try {
+          await video.play();
+        } catch (e) {}
+        document.removeEventListener("click", unlock);
+        document.removeEventListener("keydown", unlock);
+      };
+
+      document.addEventListener("click", unlock, { once: true });
+      document.addEventListener("keydown", unlock, { once: true });
     }
-  }
+  };
 
-  document.addEventListener('keydown', handleSpacebar);
+  attemptPlay();
 
-  // Play video
-  video.play().catch((err) => {
-    console.warn('[Phantom Portfolio] Video autoplay failed:', err);
-    setTimeout(startIntroCinematic, 300);
-  });
-
-  // Listen for video end - go straight to intro cinematic
-  video.addEventListener('ended', () => {
+  video.addEventListener("ended", () => {
     triggerGlitch();
     setTimeout(startIntroCinematic, 300);
   }, { once: true });

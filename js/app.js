@@ -253,12 +253,8 @@ async function loadData() {
     if (!res.ok) {
   throw new Error(`HTTP error ${res.status}`);
 }
-
 APP.data = await res.json();
-
 console.log('[Phantom Portfolio] Data loaded ✓');
-    APP.data = await res.json();
-    console.log('[Phantom Portfolio] Data loaded ✓');
   } catch (err) {
     console.error('[Phantom Portfolio] Failed to load data:', err);
     APP.data = null;

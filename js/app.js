@@ -158,6 +158,10 @@ function initStartup() {
     'ACCESS GRANTED...',
   ];
 
+  function startMediaAfterConnect() {
+    playIntroVideo();
+  }
+
   function beginConnectionSequence() {
     APP.audioEnabled = true;
     btnYes.disabled = true;
@@ -174,7 +178,7 @@ function initStartup() {
       if (progress >= 100) {
         progress = 100;
         clearInterval(interval);
-        setTimeout(playIntroVideo, 500);
+        setTimeout(startMediaAfterConnect, 500);
       }
       loadingBar.style.width = progress + '%';
 
@@ -187,9 +191,20 @@ function initStartup() {
     }, 120);
   }
 
-  btnYes.addEventListener('click', () => {
+  function triggerYes() {
+    if (btnYes.disabled) return;
     triggerGlitch();
     setTimeout(beginConnectionSequence, 300);
+  }
+
+  btnYes.addEventListener('click', triggerYes);
+
+  // Spacebar on startup screen triggers YES
+  document.addEventListener('keydown', (e) => {
+    if (APP.currentScreen === 'startup' && e.code === 'Space') {
+      e.preventDefault();
+      triggerYes();
+    }
   });
 
   btnNo.addEventListener('click', () => {
@@ -237,8 +252,7 @@ function playIntroVideo() {
     return;
   }
 
-  // IMPORTANT: force safe autoplay state
-  video.muted = true;
+  // IMPORTANT: ensure safe autoplay state — NOT muted since user already interacted
   video.playsInline = true;
   video.preload = "auto";
 
@@ -251,6 +265,16 @@ function playIntroVideo() {
   if (skipBtn) {
     skipBtn.onclick = goNext;
   }
+
+  // Spacebar skips the video too
+  const spaceSkip = (e) => {
+    if (e.code === 'Space') {
+      e.preventDefault();
+      document.removeEventListener('keydown', spaceSkip);
+      goNext();
+    }
+  };
+  document.addEventListener('keydown', spaceSkip);
 
   // FORCE PLAY (handles GitHub Pages autoplay restrictions)
   const attemptPlay = async () => {

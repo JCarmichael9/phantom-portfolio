@@ -114,9 +114,74 @@ function triggerGlitch() {
   const overlay = $('.glitch-overlay');
   if (!overlay) return;
   overlay.classList.remove('active');
-  void overlay.offsetWidth; // reflow
+  void overlay.offsetWidth;
   overlay.classList.add('active');
   setTimeout(() => overlay.classList.remove('active'), 400);
+}
+
+
+// ── Background Music System ───────────────────────────────────
+const MUSIC = {
+  tracks: [
+    'video/audio1.mp3',
+    'video/audio2.mp3',
+    'video/audio3.mp3',
+    'video/audio4.mp3',
+    'video/audio5.mp3',
+  ],
+  audio: null,
+  lastIndex: -1,
+};
+
+function pickRandomTrack() {
+  let idx;
+  do { idx = Math.floor(Math.random() * MUSIC.tracks.length); }
+  while (idx === MUSIC.lastIndex && MUSIC.tracks.length > 1);
+  MUSIC.lastIndex = idx;
+  return MUSIC.tracks[idx];
+}
+
+function startBackgroundMusic() {
+  if (MUSIC.audio) { MUSIC.audio.pause(); MUSIC.audio = null; }
+  const track = pickRandomTrack();
+  MUSIC.audio = new Audio(track);
+  const btn = $('#music-skip-btn');
+  if (btn) {
+    btn.style.display = 'block';
+    btn.onmouseenter = () => { btn.style.color = 'var(--white)'; btn.style.borderColor = 'var(--red)'; };
+    btn.onmouseleave = () => { btn.style.color = 'var(--grey)'; btn.style.borderColor = 'var(--grey-dark)'; };
+  }
+  MUSIC.audio.volume = 0;
+  const fadeIn = setInterval(() => {
+    if (MUSIC.audio && MUSIC.audio.volume < 0.4) {
+      MUSIC.audio.volume = Math.min(MUSIC.audio.volume + 0.02, 0.4);
+    } else { clearInterval(fadeIn); }
+  }, 80);
+  MUSIC.audio.play().catch(() => {});
+  MUSIC.audio.addEventListener('ended', () => startBackgroundMusic(), { once: true });
+  updateMusicBtn();
+}
+
+function skipToNextTrack() {
+  if (MUSIC.audio) {
+    const audio = MUSIC.audio;
+    const fadeOut = setInterval(() => {
+      if (audio.volume > 0.04) { audio.volume = Math.max(audio.volume - 0.04, 0); }
+      else { audio.pause(); clearInterval(fadeOut); startBackgroundMusic(); }
+    }, 40);
+  } else { startBackgroundMusic(); }
+}
+
+function updateMusicBtn() {
+  const btn = $('#music-skip-btn');
+  if (!btn || !MUSIC.audio) return;
+  btn.textContent = `♪ TRACK ${MUSIC.lastIndex + 1} ▶▶`;
+}
+
+function initMusicBtn() {
+  const btn = $('#music-skip-btn');
+  if (!btn) return;
+  btn.addEventListener('click', skipToNextTrack);
 }
 
 // ── Live Clock ────────────────────────────────────────────────
@@ -169,10 +234,8 @@ function initStartup() {
     btnYes.style.opacity = '0.5';
     btnNo.style.opacity = '0.5';
     loadingEl.classList.add('visible');
-
     let progress = 0;
     let msgIndex = 0;
-
     const interval = setInterval(() => {
       progress += Math.random() * 8 + 4;
       if (progress >= 100) {
@@ -181,8 +244,6 @@ function initStartup() {
         setTimeout(startMediaAfterConnect, 500);
       }
       loadingBar.style.width = progress + '%';
-
-      // Cycle messages
       const expectedMsg = Math.floor((progress / 100) * loadingMessages.length);
       if (expectedMsg > msgIndex && expectedMsg < loadingMessages.length) {
         msgIndex = expectedMsg;
@@ -199,7 +260,6 @@ function initStartup() {
 
   btnYes.addEventListener('click', triggerYes);
 
-  // Spacebar on startup screen triggers YES
   document.addEventListener('keydown', (e) => {
     if (APP.currentScreen === 'startup' && e.code === 'Space') {
       e.preventDefault();
@@ -209,9 +269,6 @@ function initStartup() {
 
   btnNo.addEventListener('click', () => {
     btnNo.disabled = true;
-    const originalText = btnNo.textContent;
-
-    // Humorous response
     const messages = [
       'YOU CANNOT ESCAPE THE EXPERIENCE.',
       'THE EXPERIENCE CANNOT ESCAPE YOU EITHER.',
@@ -219,7 +276,6 @@ function initStartup() {
       'THE PHANTOM THIEF STEALS YOUR ATTENTION.',
       'FINE. CONNECTING ANYWAY...',
     ];
-
     let step = 0;
     const msgEl = $('#no-response');
     if (msgEl) {
@@ -231,30 +287,23 @@ function initStartup() {
         step++;
         if (step >= messages.length) {
           clearInterval(cycle);
-          setTimeout(() => {
-            triggerGlitch();
-            beginConnectionSequence();
-          }, 600);
+          setTimeout(() => { triggerGlitch(); beginConnectionSequence(); }, 600);
         }
       }, 700);
     }
   });
 }
 
+// ── Video Screen ──────────────────────────────────────────────
 function playIntroVideo() {
   showScreen('video');
-
   const video = $('#intro-video');
   const skipBtn = $('#video-skip');
 
-  if (!video) {
-    setTimeout(startIntroCinematic, 300);
-    return;
-  }
+  if (!video) { setTimeout(startIntroCinematic, 300); return; }
 
-  // IMPORTANT: ensure safe autoplay state — NOT muted since user already interacted
   video.playsInline = true;
-  video.preload = "auto";
+  video.preload = 'auto';
 
   function goNext() {
     video.pause();
@@ -262,11 +311,8 @@ function playIntroVideo() {
     setTimeout(startIntroCinematic, 300);
   }
 
-  if (skipBtn) {
-    skipBtn.onclick = goNext;
-  }
+  if (skipBtn) skipBtn.onclick = goNext;
 
-  // Spacebar skips the video too
   const spaceSkip = (e) => {
     if (e.code === 'Space') {
       e.preventDefault();
@@ -276,30 +322,21 @@ function playIntroVideo() {
   };
   document.addEventListener('keydown', spaceSkip);
 
-  // FORCE PLAY (handles GitHub Pages autoplay restrictions)
   const attemptPlay = async () => {
-    try {
-      await video.play();
-    } catch (err) {
-      console.warn("Autoplay blocked, waiting for interaction:", err);
-
-      // fallback: wait for ANY user input
+    try { await video.play(); }
+    catch (err) {
       const unlock = async () => {
-        try {
-          await video.play();
-        } catch (e) {}
-        document.removeEventListener("click", unlock);
-        document.removeEventListener("keydown", unlock);
+        try { await video.play(); } catch (e) {}
+        document.removeEventListener('click', unlock);
+        document.removeEventListener('keydown', unlock);
       };
-
-      document.addEventListener("click", unlock, { once: true });
-      document.addEventListener("keydown", unlock, { once: true });
+      document.addEventListener('click', unlock, { once: true });
+      document.addEventListener('keydown', unlock, { once: true });
     }
   };
-
   attemptPlay();
 
-  video.addEventListener("ended", () => {
+  video.addEventListener('ended', () => {
     triggerGlitch();
     setTimeout(startIntroCinematic, 300);
   }, { once: true });
@@ -309,10 +346,13 @@ function playIntroVideo() {
 function startIntroCinematic() {
   showScreen('intro');
 
+  // Start background music — plays through cinematic and all screens
+  startBackgroundMusic();
+
   const tl = gsap.timeline({
     onComplete: () => {
       triggerGlitch();
-      setTimeout(() => showScreen('menu'), 400);
+      setTimeout(() => { showScreen('menu'); initMenu(); }, 400);
     }
   });
 
@@ -1126,103 +1166,19 @@ function injectFeaturedCSS() {
   document.head.appendChild(style);
 }
 
+
 // ── Init Everything ───────────────────────────────────────────
 async function init() {
-  // Load data first
-  await loadData();
-
-  // Init background
+  // Show startup immediately — don't block on data fetch
   initBgShapes();
-
-  // Live clock
   updateClock();
   setInterval(updateClock, 1000);
-
-  // Inject dynamic CSS
   injectFeaturedCSS();
-
-  // Init all screens/buttons
   initStartup();
   initSkipBtn();
+  initMusicBtn();
 
-  // Menu option handlers
-  const menuPlay = $('#menu-play');
-  const menuGallery = $('#menu-gallery');
-  const menuStats = $('#menu-stats');
-  const menuAbout = $('#menu-about');
-  const menuExit = $('#menu-exit');
-
-  menuPlay?.addEventListener('click',    () => showSaveScreen());
-  menuGallery?.addEventListener('click', () => { triggerGlitch(); setTimeout(() => showContentScreen('portfolio'), 300); });
-  menuStats?.addEventListener('click',   () => { triggerGlitch(); setTimeout(() => showContentScreen('stats'), 300); });
-  menuAbout?.addEventListener('click',   () => { triggerGlitch(); setTimeout(() => showContentScreen('about'), 300); });
-  menuExit?.addEventListener('click',    () => triggerExitReality());
-
-  // Save card handlers
-  $$('.save-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const saveId = parseInt(card.dataset.saveId);
-      handleSaveSelect(saveId);
-    });
-  });
-
-  // Nav links
-  $$('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      showContentScreen(link.dataset.section);
-    });
-  });
-
-  // Back to menu
-  $$('.back-to-menu, #nav-back').forEach(btn => {
-    btn.addEventListener('click', () => {
-      triggerGlitch();
-      setTimeout(() => {
-        $$('.screen').forEach(s => s.classList.remove('active'));
-        $('#screen-content').classList.remove('active');
-        $('#screen-unknown').classList.remove('active');
-        showScreen('menu');
-        initMenu();
-      }, 400);
-    });
-  });
-
-  // Save screen back
-  $('#saves-back')?.addEventListener('click', () => {
-    triggerGlitch();
-    setTimeout(() => showScreen('menu'), 300);
-  });
-
-  // Unknown route back
-  $('#unknown-back')?.addEventListener('click', () => {
-    triggerGlitch();
-    const unknownScreen = $('#screen-unknown');
-    unknownScreen.classList.remove('active');
-    setTimeout(() => showScreen('saves'), 400);
-  });
-
-  // Modal close
-  $('#modal-close')?.addEventListener('click', closeModal);
-  $('#modal-overlay')?.addEventListener('click', (e) => {
-    if (e.target.id === 'modal-overlay') closeModal();
-  });
-
-  // ESC key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      if ($('#modal-overlay')?.classList.contains('open')) {
-        closeModal();
-      }
-    }
-  });
-
-  // Init Vue after data is ready
-  initVueApp();
-
-  // Show startup screen
   showScreen('startup');
-
-  // Animate startup elements in
   gsap.fromTo('.startup-title',
     { opacity: 0, y: 30 },
     { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.3 }
@@ -1236,6 +1192,68 @@ async function init() {
     { opacity: 0.6, scale: 1, duration: 0.5, stagger: 0.1, ease: 'back.out(2)', delay: 0.2 }
   );
 
+  // Load data in background
+  await loadData();
+
+  const menuPlay    = $('#menu-play');
+  const menuGallery = $('#menu-gallery');
+  const menuStats   = $('#menu-stats');
+  const menuAbout   = $('#menu-about');
+  const menuExit    = $('#menu-exit');
+
+  menuPlay?.addEventListener('click',    () => showSaveScreen());
+  menuGallery?.addEventListener('click', () => { triggerGlitch(); setTimeout(() => showContentScreen('portfolio'), 300); });
+  menuStats?.addEventListener('click',   () => { triggerGlitch(); setTimeout(() => showContentScreen('stats'), 300); });
+  menuAbout?.addEventListener('click',   () => { triggerGlitch(); setTimeout(() => showContentScreen('about'), 300); });
+  menuExit?.addEventListener('click',    () => triggerExitReality());
+
+  $$('.save-card').forEach(card => {
+    card.addEventListener('click', () => {
+      handleSaveSelect(parseInt(card.dataset.saveId));
+    });
+  });
+
+  $$('.nav-link').forEach(link => {
+    link.addEventListener('click', () => showContentScreen(link.dataset.section));
+  });
+
+  $$('.back-to-menu, #nav-back').forEach(btn => {
+    btn.addEventListener('click', () => {
+      triggerGlitch();
+      setTimeout(() => {
+        $$('.screen').forEach(s => s.classList.remove('active'));
+        $('#screen-content').classList.remove('active');
+        $('#screen-unknown').classList.remove('active');
+        showScreen('menu');
+        initMenu();
+      }, 400);
+    });
+  });
+
+  $('#saves-back')?.addEventListener('click', () => {
+    triggerGlitch();
+    setTimeout(() => showScreen('menu'), 300);
+  });
+
+  $('#unknown-back')?.addEventListener('click', () => {
+    triggerGlitch();
+    const unknownScreen = $('#screen-unknown');
+    unknownScreen.classList.remove('active');
+    setTimeout(() => showScreen('saves'), 400);
+  });
+
+  $('#modal-close')?.addEventListener('click', closeModal);
+  $('#modal-overlay')?.addEventListener('click', (e) => {
+    if (e.target.id === 'modal-overlay') closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && $('#modal-overlay')?.classList.contains('open')) {
+      closeModal();
+    }
+  });
+
+  initVueApp();
   console.log('[Phantom Portfolio] Initialized ✓');
 }
 

@@ -249,7 +249,14 @@ function updateClock() {
 // ── Data Loading ──────────────────────────────────────────────
 async function loadData() {
   try {
-    const res = await fetch('/data/projects.json');
+    const res = await fetch('./data/projects.json');
+    if (!res.ok) {
+  throw new Error(`HTTP error ${res.status}`);
+}
+
+APP.data = await res.json();
+
+console.log('[Phantom Portfolio] Data loaded ✓');
     APP.data = await res.json();
     console.log('[Phantom Portfolio] Data loaded ✓');
   } catch (err) {

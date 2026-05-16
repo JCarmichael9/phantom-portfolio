@@ -123,11 +123,11 @@ function triggerGlitch() {
 // ── Background Music System ───────────────────────────────────
 const MUSIC = {
   tracks: [
-    'video/audio1.mp3',
-    'video/audio2.mp3',
-    'video/audio3.mp3',
-    'video/audio4.mp3',
-    'video/audio5.mp3',
+    'audios/persona/audio1.mp3',
+    'audios/persona/audio2.mp3',
+    'audios/persona/audio3.mp3',
+    'audios/persona/audio4.mp3',
+    'audios/persona/audio5.mp3',
   ],
   audio: null,
   lastIndex: -1,

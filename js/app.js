@@ -144,22 +144,49 @@ function pickRandomTrack() {
 function startBackgroundMusic() {
   if (MUSIC.audio) { MUSIC.audio.pause(); MUSIC.audio = null; }
   const track = pickRandomTrack();
-  MUSIC.audio = new Audio(track);
+  const audio = new Audio(track);
+  MUSIC.audio = audio;
+
   const btn = $('#music-skip-btn');
   if (btn) {
     btn.style.display = 'block';
     btn.onmouseenter = () => { btn.style.color = 'var(--white)'; btn.style.borderColor = 'var(--red)'; };
     btn.onmouseleave = () => { btn.style.color = 'var(--grey)'; btn.style.borderColor = 'var(--grey-dark)'; };
   }
-  MUSIC.audio.volume = 0;
-  const fadeIn = setInterval(() => {
-    if (MUSIC.audio && MUSIC.audio.volume < 0.4) {
-      MUSIC.audio.volume = Math.min(MUSIC.audio.volume + 0.02, 0.4);
-    } else { clearInterval(fadeIn); }
-  }, 80);
-  MUSIC.audio.play().catch(() => {});
-  MUSIC.audio.addEventListener('ended', () => startBackgroundMusic(), { once: true });
+
+  audio.volume = 0;
+  audio.addEventListener('ended', () => startBackgroundMusic(), { once: true });
   updateMusicBtn();
+
+  // Play first, THEN fade in once playing has actually started
+  const playPromise = audio.play();
+  if (playPromise !== undefined) {
+    playPromise.then(() => {
+      // Audio is playing — now fade in
+      const fadeIn = setInterval(() => {
+        if (MUSIC.audio === audio && audio.volume < 0.4) {
+          audio.volume = Math.min(audio.volume + 0.02, 0.4);
+        } else {
+          clearInterval(fadeIn);
+        }
+      }, 80);
+    }).catch(() => {
+      // Autoplay blocked — wait for next user interaction then try again
+      const unlock = () => {
+        audio.play().then(() => {
+          const fadeIn = setInterval(() => {
+            if (MUSIC.audio === audio && audio.volume < 0.4) {
+              audio.volume = Math.min(audio.volume + 0.02, 0.4);
+            } else { clearInterval(fadeIn); }
+          }, 80);
+        }).catch(() => {});
+        document.removeEventListener('click', unlock);
+        document.removeEventListener('keydown', unlock);
+      };
+      document.addEventListener('click', unlock, { once: true });
+      document.addEventListener('keydown', unlock, { once: true });
+    });
+  }
 }
 
 function skipToNextTrack() {
@@ -420,12 +447,25 @@ function startIntroCinematic() {
 function initSkipBtn() {
   const skipBtn = $('#intro-skip');
   if (!skipBtn) return;
-  skipBtn.addEventListener('click', () => {
+
+  function doSkip() {
     gsap.killTweensOf('*');
     $$('.intro-panel').forEach(p => p.style.opacity = '0');
     triggerGlitch();
-    setTimeout(() => showScreen('menu'), 400);
-  });
+    setTimeout(() => { showScreen('menu'); initMenu(); }, 400);
+  }
+
+  skipBtn.addEventListener('click', doSkip);
+
+  // Spacebar skips the cinematic
+  const spaceSkip = (e) => {
+    if (APP.currentScreen === 'intro' && e.code === 'Space') {
+      e.preventDefault();
+      document.removeEventListener('keydown', spaceSkip);
+      doSkip();
+    }
+  };
+  document.addEventListener('keydown', spaceSkip);
 }
 
 // ── Main Menu Logic ───────────────────────────────────────────
@@ -591,6 +631,11 @@ function animateSection(section) {
   // Stats counters
   if (section === 'stats') {
     animateCounters();
+    animateSkillBars();
+  }
+
+  // About page skill bars
+  if (section === 'about') {
     animateSkillBars();
   }
 }
@@ -991,21 +1036,23 @@ function initVueApp() {
         <!-- Character Profile Card -->
         <div class="char-profile">
           <div class="char-avatar">
-            <div class="char-placeholder">AR</div>
+            <div class="char-placeholder">JC</div>
           </div>
-          <div class="char-name-plate">
-            <div class="char-name">{{ dev.name }}</div>
-            <div class="char-title-text">{{ dev.title }}</div>
+          <div class="char-info-col">
+            <div class="char-name-plate">
+              <div class="char-name">{{ dev.name }}</div>
+              <div class="char-title-text">{{ dev.title }}</div>
+            </div>
+            <ul class="char-stats-list">
+              <li v-for="skill in dev.skills" :key="skill.name" class="char-stat-item">
+                <span class="char-stat-label">{{ skill.name }}</span>
+                <div class="char-stat-bar">
+                  <div class="char-stat-fill" :data-level="skill.level" style="width:0%"></div>
+                </div>
+                <span class="char-stat-val">{{ skill.level }}</span>
+              </li>
+            </ul>
           </div>
-          <ul class="char-stats-list">
-            <li v-for="skill in dev.skills" :key="skill.name" class="char-stat-item">
-              <span class="char-stat-label">{{ skill.name }}</span>
-              <div class="char-stat-bar">
-                <div class="char-stat-fill" :data-level="skill.level" style="width:0%"></div>
-              </div>
-              <span class="char-stat-val">{{ skill.level }}</span>
-            </li>
-          </ul>
         </div>
 
         <!-- Bio Content -->
@@ -1038,7 +1085,7 @@ function initVueApp() {
       };
     },
     template: `
-      <div class="reflection-content" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;min-height:calc(100vh - 200px);align-content:center">
+      <div class="reflection-content" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;min-height:calc(100vh - 200px);align-content:center">
         <div class="reflection-block">
           <div class="reflection-topic">OVERALL REFLECTION</div>
           <p class="reflection-text">{{ ref.overall }}</p>

@@ -239,14 +239,31 @@ function playIntroVideo() {
     return;
   }
 
+  // Handler for skip/play toggle
+  function handleSkip() {
+    video.pause();
+    triggerGlitch();
+    setTimeout(startIntroCinematic, 300);
+  }
+
   // Skip button handler
   if (skipBtn) {
-    skipBtn.addEventListener('click', () => {
-      video.pause();
-      triggerGlitch();
-      setTimeout(startIntroCinematic, 300);
-    });
+    skipBtn.addEventListener('click', handleSkip);
   }
+
+  // Spacebar handler - skip or play/pause
+  function handleSpacebar(e) {
+    if (e.code === 'Space' && $('#screen-video').classList.contains('active')) {
+      e.preventDefault();
+      if (video.paused) {
+        video.play();
+      } else {
+        handleSkip();
+      }
+    }
+  }
+
+  document.addEventListener('keydown', handleSpacebar);
 
   // Play video
   video.play().catch((err) => {

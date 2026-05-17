@@ -122,9 +122,31 @@ function triggerGlitch() {
 
 // ── Background Music System ───────────────────────────────────
 const MUSIC = {
-  tracks: Array.from({ length: 77 }, (_, i) =>
-    `audios/persona/audio${i + 1}.mp3`
-  ),
+  mode: 'persona', // 'persona' or 'drake'
+  libraries: {
+    persona: Array.from({ length: 77 }, (_, i) => `audios/persona/audio${i + 1}.mp3`),
+    drake: [
+      { src: 'audios/drake/audio1.mp3',  title: 'Make Them Cry' },
+      { src: 'audios/drake/audio2.mp3',  title: 'Dust' },
+      { src: 'audios/drake/audio3.mp3',  title: 'Whisper My Name' },
+      { src: 'audios/drake/audio4.mp3',  title: 'Janice STFU' },
+      { src: 'audios/drake/audio5.mp3',  title: 'Ran To Atlanta' },
+      { src: 'audios/drake/audio6.mp3',  title: 'Shabang' },
+      { src: 'audios/drake/audio7.mp3',  title: 'Make Them Pay' },
+      { src: 'audios/drake/audio8.mp3',  title: 'Burning Bridges' },
+      { src: 'audios/drake/audio9.mp3',  title: 'National Treasures' },
+      { src: 'audios/drake/audio10.mp3', title: "B's On The Table" },
+      { src: 'audios/drake/audio11.mp3', title: 'What Did I Miss?' },
+      { src: 'audios/drake/audio12.mp3', title: 'Plot Twist' },
+      { src: 'audios/drake/audio13.mp3', title: '2 Hard 4 The Radio' },
+      { src: 'audios/drake/audio14.mp3', title: 'Make Them Remember' },
+      { src: 'audios/drake/audio15.mp3', title: 'Little Birdie' },
+      { src: 'audios/drake/audio16.mp3', title: "Don't Worry" },
+      { src: 'audios/drake/audio17.mp3', title: 'Firm Friends' },
+      { src: 'audios/drake/audio18.mp3', title: 'Make Them Know' },
+    ],
+  },
+  get tracks() { return this.libraries[this.mode]; },
   audio: null,
   lastIndex: -1,
   muted: false,
@@ -135,7 +157,15 @@ function pickRandomTrack() {
   do { idx = Math.floor(Math.random() * MUSIC.tracks.length); }
   while (idx === MUSIC.lastIndex && MUSIC.tracks.length > 1);
   MUSIC.lastIndex = idx;
-  return MUSIC.tracks[idx];
+  const track = MUSIC.tracks[idx];
+  // Drake tracks are objects {src, title}, persona tracks are strings
+  return typeof track === 'object' ? track.src : track;
+}
+
+function currentTrackTitle() {
+  if (MUSIC.lastIndex < 0) return null;
+  const track = MUSIC.tracks[MUSIC.lastIndex];
+  return typeof track === 'object' ? track.title : null;
 }
 
 function startBackgroundMusic() {
@@ -204,7 +234,13 @@ function skipToNextTrack() {
 function updateMusicBtn() {
   const btn = $('#music-skip-btn');
   if (!btn || !MUSIC.audio) return;
-  btn.textContent = `♪ TRACK ${MUSIC.lastIndex + 1} ▶▶`;
+
+  if (MUSIC.mode === 'persona') {
+    btn.textContent = `♪ TRACK ${MUSIC.lastIndex + 1} ▶▶`;
+  } else {
+    const current = MUSIC.tracks[MUSIC.lastIndex];
+    btn.textContent = `♪ ${current.title} ▶▶`;
+  }
 }
 
 function toggleMute() {
@@ -217,6 +253,57 @@ function toggleMute() {
   btn.textContent = MUSIC.muted ? '♪ UNMUTE' : '♪ MUTE';
   btn.style.color = MUSIC.muted ? 'var(--red)' : 'var(--grey)';
   btn.style.borderColor = MUSIC.muted ? 'var(--red)' : 'var(--grey-dark)';
+}
+
+function showVibeToast(msg) {
+  const toast = $('#vibe-toast');
+  if (!toast) return;
+  toast.textContent = msg;
+  toast.style.opacity = '1';
+  toast.style.transform = 'translateX(-50%) translateY(0)';
+  clearTimeout(toast._hideTimer);
+  toast._hideTimer = setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(-50%) translateY(-60px)';
+  }, 3000);
+}
+
+function switchVibe() {
+  MUSIC.mode = MUSIC.mode === 'persona' ? 'drake' : 'persona';
+  MUSIC.lastIndex = -1;
+
+  const btn = $('#vibe-switch-btn');
+  if (btn) {
+    btn.textContent = MUSIC.mode === 'persona'
+      ? "LET'S SWITCH UP THE VIBE 🎵"
+      : 'BACK TO THE METAVERSE 🔴';
+  }
+
+  // Fade out current and start new — toast shows after new track title is known
+  if (MUSIC.audio) {
+    const audio = MUSIC.audio;
+    const fadeOut = setInterval(() => {
+      if (audio.volume > 0.04) { audio.volume = Math.max(audio.volume - 0.04, 0); }
+      else {
+        audio.pause();
+        clearInterval(fadeOut);
+        startBackgroundMusic();
+        // Show toast with title now that track is picked
+        const title = currentTrackTitle();
+        const label = MUSIC.mode === 'persona'
+          ? '♪ PERSONA 5 ROYAL — NOW PLAYING'
+          : `♪ ${title || 'DRAKE'} — NOW PLAYING`;
+        showVibeToast(label);
+      }
+    }, 40);
+  } else {
+    startBackgroundMusic();
+    const title = currentTrackTitle();
+    const label = MUSIC.mode === 'persona'
+      ? '♪ PERSONA 5 ROYAL — NOW PLAYING'
+      : `♪ ${title || 'DRAKE'} — NOW PLAYING`;
+    showVibeToast(label);
+  }
 }
 
 function initMusicBtn() {
@@ -250,11 +337,8 @@ function updateClock() {
 async function loadData() {
   try {
     const res = await fetch('data/projects.json');
-    if (!res.ok) {
-  throw new Error(`HTTP error ${res.status}`);
-}
-APP.data = await res.json();
-console.log('[Phantom Portfolio] Data loaded ✓');
+    APP.data = await res.json();
+    console.log('[Phantom Portfolio] Data loaded ✓');
   } catch (err) {
     console.error('[Phantom Portfolio] Failed to load data:', err);
     APP.data = null;
@@ -397,13 +481,13 @@ function playIntroVideo() {
 }
 
 // ── Intro Cinematic ───────────────────────────────────────────
+let _introCinematicTL = null; // keep reference so skip can kill it
+
 function startIntroCinematic() {
   showScreen('intro');
-
-  // Start background music — plays through cinematic and all screens
   startBackgroundMusic();
 
-  const tl = gsap.timeline({
+  _introCinematicTL = gsap.timeline({
     onComplete: () => {
       triggerGlitch();
       setTimeout(() => { showScreen('menu'); initMenu(); }, 400);
@@ -418,7 +502,7 @@ function startIntroCinematic() {
     const smallEl  = $('.panel-small', panel);
     const slashEl  = $('.panel-slash', panel);
 
-    tl.set(panel, { opacity: 1 })
+    _introCinematicTL.set(panel, { opacity: 1 })
       // Slash sweep
       .fromTo(slashEl,
         { clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%)' },
@@ -435,14 +519,14 @@ function startIntroCinematic() {
       );
 
     if (smallEl) {
-      tl.fromTo(smallEl,
+      _introCinematicTL.fromTo(smallEl,
         { opacity: 0, y: 10 },
         { opacity: 1, y: 0, duration: 0.3 },
         '-=0.1'
       );
     }
 
-    tl.to({}, { duration })
+    _introCinematicTL.to({}, { duration })
       .to(panel, { opacity: 0, duration: 0.3 });
   }
 
@@ -461,7 +545,7 @@ function startIntroCinematic() {
   const finalPanel = $('#panel-final');
   if (finalPanel) {
     const finalWord = $('.panel-word', finalPanel);
-    tl.set(finalPanel, { opacity: 1 })
+    _introCinematicTL.set(finalPanel, { opacity: 1 })
       .fromTo(finalWord,
         { scale: 3, opacity: 0 },
         { scale: 1, opacity: 1, duration: 0.6, ease: 'expo.out' }
@@ -476,6 +560,11 @@ function initSkipBtn() {
   if (!skipBtn) return;
 
   function doSkip() {
+    // Kill the timeline completely — prevents onComplete from firing later
+    if (_introCinematicTL) {
+      _introCinematicTL.kill();
+      _introCinematicTL = null;
+    }
     gsap.killTweensOf('*');
     $$('.intro-panel').forEach(p => p.style.opacity = '0');
     triggerGlitch();
@@ -496,28 +585,40 @@ function initSkipBtn() {
 }
 
 // ── Main Menu Logic ───────────────────────────────────────────
+let _menuInitialized = false;
+
 function initMenu() {
   const menuItems = $$('.menu-item');
 
-  // Keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    if (APP.currentScreen !== 'menu') return;
+  // Only add the keydown listener ONCE ever
+  if (!_menuInitialized) {
+    document.addEventListener('keydown', (e) => {
+      if (APP.currentScreen !== 'menu') return;
+      if (e.key === 'ArrowDown' || e.key === 's') {
+        APP.menuFocused = (APP.menuFocused + 1) % menuItems.length;
+        updateMenuFocus();
+      }
+      if (e.key === 'ArrowUp' || e.key === 'w') {
+        APP.menuFocused = (APP.menuFocused - 1 + menuItems.length) % menuItems.length;
+        updateMenuFocus();
+      }
+      if (e.key === 'Enter' || e.key === ' ') {
+        menuItems[APP.menuFocused]?.click();
+      }
+      if (e.key === 'Escape') {
+        showScreen('menu');
+      }
+    });
 
-    if (e.key === 'ArrowDown' || e.key === 's') {
-      APP.menuFocused = (APP.menuFocused + 1) % menuItems.length;
-      updateMenuFocus();
-    }
-    if (e.key === 'ArrowUp' || e.key === 'w') {
-      APP.menuFocused = (APP.menuFocused - 1 + menuItems.length) % menuItems.length;
-      updateMenuFocus();
-    }
-    if (e.key === 'Enter' || e.key === ' ') {
-      menuItems[APP.menuFocused]?.click();
-    }
-    if (e.key === 'Escape') {
-      showScreen('menu');
-    }
-  });
+    menuItems.forEach((item, i) => {
+      item.addEventListener('mouseenter', () => {
+        APP.menuFocused = i;
+        updateMenuFocus();
+      });
+    });
+
+    _menuInitialized = true;
+  }
 
   function updateMenuFocus() {
     menuItems.forEach((item, i) => {
@@ -525,14 +626,7 @@ function initMenu() {
     });
   }
 
-  menuItems.forEach((item, i) => {
-    item.addEventListener('mouseenter', () => {
-      APP.menuFocused = i;
-      updateMenuFocus();
-    });
-  });
-
-  // Menu enter animation
+  // Always re-run entrance animations when menu is shown
   gsap.fromTo('.menu-side-bar',
     { scaleY: 0 },
     { scaleY: 1, duration: 0.6, ease: 'power4.out', transformOrigin: 'top center' }
@@ -699,11 +793,17 @@ function animateSkillBars() {
 
 // ── Unknown Route ─────────────────────────────────────────────
 function showUnknownRoute() {
-  // Hide all screens first
-  $$('.screen').forEach(s => {
-    s.classList.remove('active');
-  });
-  
+  // Hide ALL screens including non-.screen divs
+  $$('.screen').forEach(s => s.classList.remove('active'));
+  $('#screen-content')?.classList.remove('active');
+
+  // Force menu off too in case it's lingering
+  const menuScreen = $('#screen-menu');
+  if (menuScreen) {
+    menuScreen.classList.remove('active');
+    menuScreen.style.pointerEvents = 'none';
+  }
+
   const unknownScreen = $('#screen-unknown');
   unknownScreen.classList.add('active');
   APP.currentScreen = 'unknown';
@@ -1266,9 +1366,7 @@ async function init() {
     { opacity: 0.6, scale: 1, duration: 0.5, stagger: 0.1, ease: 'back.out(2)', delay: 0.2 }
   );
 
-  // Load data in background
-  await loadData();
-
+  // Wire up ALL event listeners immediately — before data loads
   const menuPlay    = $('#menu-play');
   const menuGallery = $('#menu-gallery');
   const menuStats   = $('#menu-stats');
@@ -1313,6 +1411,8 @@ async function init() {
     triggerGlitch();
     const unknownScreen = $('#screen-unknown');
     unknownScreen.classList.remove('active');
+    const menuScreen = $('#screen-menu');
+    if (menuScreen) menuScreen.style.pointerEvents = '';
     setTimeout(() => showScreen('saves'), 400);
   });
 
@@ -1327,6 +1427,8 @@ async function init() {
     }
   });
 
+  // Load data in background — Vue mounts after data ready, nothing else changes
+  await loadData();
   initVueApp();
   console.log('[Phantom Portfolio] Initialized ✓');
 }

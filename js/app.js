@@ -920,10 +920,10 @@ function initVueApp() {
             <span class="year-level">LV.12 — June 2024</span>
           </div>
           <div v-if="sophomoreProjects.length === 0" style="text-align:center;padding:60px 40px;font-family:var(--font-mono);color:var(--grey)">
-            <div style="font-size:64px;margin-bottom:20px;color:var(--red)">⚠</div>
-            <div style="font-size:20px;letter-spacing:0.2em;margin-bottom:12px">ERROR 404</div>
-            <div style="font-size:14px;margin-bottom:20px">FILES COULD NOT BE FOUND</div>
-            <div style="font-size:12px;color:rgba(255,255,255,0.5)">Archive data unavailable — early projects not preserved</div>
+            <div style="font-size:72px;margin-bottom:20px;color:var(--red)">⚠</div>
+            <div style="font-size:24px;letter-spacing:0.2em;margin-bottom:12px">ERROR 404</div>
+            <div style="font-size:18px;margin-bottom:20px">FILES COULD NOT BE FOUND</div>
+            <div style="font-size:14px;color:rgba(255,255,255,0.5)">Archive data unavailable — early projects not preserved</div>
           </div>
           <div v-else class="projects-grid">
             <div v-for="project in sophomoreProjects" :key="project.id" class="project-card">
@@ -1090,7 +1090,7 @@ function initVueApp() {
         </div>
 
         <div class="section-eyebrow">SKILL ANALYSIS</div>
-        <h2 class="section-title" style="font-size:32px;margin-bottom:30px">Technical <span>Proficiency</span></h2>
+        <h2 class="section-title" style="font-size:36px;margin-bottom:30px">Technical <span>Proficiency</span></h2>
 
         <div class="skills-list">
           <div v-for="skill in skills" :key="skill.name" class="skill-row">
@@ -1212,7 +1212,7 @@ function initVueApp() {
       };
     },
     template: `
-      <div class="reflection-content" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;min-height:calc(100vh - 200px);align-content:center">
+      <div class="reflection-content" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;align-content:start">
         <div class="reflection-block">
           <div class="reflection-topic">OVERALL REFLECTION</div>
           <p class="reflection-text">{{ ref.overall }}</p>
@@ -1248,11 +1248,11 @@ function initVueApp() {
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-bottom:40px" class="future-info-grid">
           <div>
             <div class="section-eyebrow">EDUCATION PATH</div>
-            <p style="font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,0.7);line-height:1.8;margin-top:12px">{{ future.college }}</p>
+            <p style="font-family:var(--font-body);font-size:17px;color:rgba(255,255,255,0.7);line-height:1.8;margin-top:12px">{{ future.college }}</p>
           </div>
           <div>
             <div class="section-eyebrow">CAREER VISION</div>
-            <p style="font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,0.7);line-height:1.8;margin-top:12px">{{ future.career }}</p>
+            <p style="font-family:var(--font-body);font-size:17px;color:rgba(255,255,255,0.7);line-height:1.8;margin-top:12px">{{ future.career }}</p>
           </div>
         </div>
         <div class="section-eyebrow">MISSION OBJECTIVES</div>
@@ -1273,9 +1273,10 @@ function initVueApp() {
     },
     template: `
       <div>
-        <ul class="unknown-goals">
-          <li v-for="(goal, i) in future.goals" :key="i" class="unknown-goal">{{ goal }}</li>
-        </ul>
+        <div class="unknown-video-placeholder">
+          <div class="video-icon">▶</div>
+          <p>Video Placeholder</p>
+        </div>
       </div>
     `
   }).mount('#vue-unknown');
@@ -1301,15 +1302,15 @@ function injectFeaturedCSS() {
     }
     .featured-main-body { padding: 32px; }
     .featured-tag {
-      font-family: var(--font-ui); font-size: 10px; font-weight: 700;
+      font-family: var(--font-ui); font-size: 12px; font-weight: 700;
       letter-spacing: 0.4em; color: var(--red); margin-bottom: 12px;
     }
     .featured-title {
-      font-family: var(--font-display); font-size: 42px; color: var(--white);
+      font-family: var(--font-display); font-size: 48px; color: var(--white);
       line-height: 1; margin: 10px 0 14px;
     }
     .featured-desc {
-      font-family: var(--font-body); font-size: 15px;
+      font-family: var(--font-body); font-size: 17px;
       color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 24px;
     }
     .featured-actions { display: flex; align-items: center; }
@@ -1326,10 +1327,10 @@ function injectFeaturedCSS() {
     .featured-thumb-img { width: 60px; height: 44px; object-fit: cover; flex-shrink: 0; }
     .featured-thumb-info { display: flex; flex-direction: column; gap: 2px; }
     .featured-thumb-year {
-      font-family: var(--font-mono); font-size: 9px; color: var(--red); letter-spacing: 0.2em;
+      font-family: var(--font-mono); font-size: 11px; color: var(--red); letter-spacing: 0.2em;
     }
     .featured-thumb-title {
-      font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--white);
+      font-family: var(--font-body); font-size: 15px; font-weight: 600; color: var(--white);
     }
     @media(max-width:768px) {
       .featured-layout { grid-template-columns: 1fr; }

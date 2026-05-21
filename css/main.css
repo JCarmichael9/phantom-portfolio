@@ -53,7 +53,7 @@ body {
   background: var(--black);
   color: var(--white);
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   overflow-x: hidden;
   cursor: none;
@@ -223,7 +223,7 @@ body:hover #cursor { opacity: 1; }
 
 .startup-badge {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   color: var(--red);
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -351,7 +351,7 @@ body:hover #cursor { opacity: 1; }
 
 .loading-text {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--red);
   letter-spacing: 0.3em;
   animation: pulse-opacity 0.8s ease infinite;
@@ -394,20 +394,25 @@ body:hover #cursor { opacity: 1; }
   top: 20px;
   right: 30px;
   font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--grey);
-  background: transparent;
-  border: 1px solid var(--grey-dark);
-  padding: 6px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white);
+  background: rgba(255, 0, 51, 0.15);
+  border: 2px solid var(--red);
+  padding: 10px 20px;
   cursor: none;
   letter-spacing: 0.2em;
   z-index: 200;
   transition: all var(--transition-fast);
+  box-shadow: 0 0 20px rgba(255, 0, 51, 0.4), inset 0 0 10px rgba(255, 0, 51, 0.2);
+  text-transform: uppercase;
 }
 
 .video-skip-btn:hover {
   color: var(--white);
   border-color: var(--red);
+  background: rgba(255, 0, 51, 0.25);
+  box-shadow: 0 0 30px rgba(255, 0, 51, 0.6), inset 0 0 15px rgba(255, 0, 51, 0.3);
 }
 
 /* ============================================================
@@ -427,20 +432,25 @@ body:hover #cursor { opacity: 1; }
   top: 20px;
   right: 30px;
   font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--grey);
-  background: transparent;
-  border: 1px solid var(--grey-dark);
-  padding: 6px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white);
+  background: rgba(255, 0, 51, 0.15);
+  border: 2px solid var(--red);
+  padding: 10px 20px;
   cursor: none;
   letter-spacing: 0.2em;
   z-index: 200;
   transition: all var(--transition-fast);
+  box-shadow: 0 0 20px rgba(255, 0, 51, 0.4), inset 0 0 10px rgba(255, 0, 51, 0.2);
+  text-transform: uppercase;
 }
 
 .intro-skip-btn:hover {
   color: var(--white);
   border-color: var(--red);
+  background: rgba(255, 0, 51, 0.25);
+  box-shadow: 0 0 30px rgba(255, 0, 51, 0.6), inset 0 0 15px rgba(255, 0, 51, 0.3);
 }
 
 .intro-panel {
@@ -586,7 +596,7 @@ body:hover #cursor { opacity: 1; }
 
 .menu-header-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   color: var(--red);
   letter-spacing: 0.4em;
   text-transform: uppercase;
@@ -651,7 +661,7 @@ body:hover #cursor { opacity: 1; }
 
 .menu-item-index {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   color: var(--grey);
   letter-spacing: 0.1em;
   min-width: 24px;
@@ -685,7 +695,7 @@ body:hover #cursor { opacity: 1; }
 
 .menu-item-desc {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   color: var(--grey);
   letter-spacing: 0.15em;
   position: relative;
@@ -722,7 +732,7 @@ body:hover #cursor { opacity: 1; }
 
 .menu-time {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   color: var(--grey);
   letter-spacing: 0.3em;
 }
@@ -756,7 +766,7 @@ body:hover #cursor { opacity: 1; }
   bottom: 20px;
   right: 30px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   color: var(--grey-dark);
   letter-spacing: 0.2em;
 }
@@ -887,7 +897,7 @@ body:hover #cursor { opacity: 1; }
 
 .save-level {
   font-family: var(--font-ui);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
 }
 
@@ -931,7 +941,7 @@ body:hover #cursor { opacity: 1; }
 .save-back-btn {
   margin-top: 30px;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--grey);
   background: transparent;
   border: 1px solid var(--grey-dark);
@@ -1046,7 +1056,7 @@ body:hover #cursor { opacity: 1; }
 
 /* ── Section Styles ── */
 .content-section {
-  min-height: 100vh;
+  min-height: auto;
   padding: 80px 60px;
   position: relative;
   display: none;
@@ -1056,7 +1066,7 @@ body:hover #cursor { opacity: 1; }
 
 .section-eyebrow {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   color: var(--red);
   letter-spacing: 0.5em;
   text-transform: uppercase;
@@ -1079,7 +1089,7 @@ body:hover #cursor { opacity: 1; }
   font-size: clamp(40px, 6vw, 80px);
   line-height: 1;
   color: var(--white);
-  margin-bottom: 40px;
+  margin-bottom: 0px;
 }
 
 .section-title span { color: var(--red); }
@@ -1196,7 +1206,7 @@ body:hover #cursor { opacity: 1; }
 
 .project-desc {
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 300;
   color: rgba(255,255,255,0.6);
   line-height: 1.6;
@@ -1298,7 +1308,7 @@ body:hover #cursor { opacity: 1; }
 
 .modal-year {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--red);
   letter-spacing: 0.3em;
   margin-bottom: 16px;
@@ -1306,7 +1316,7 @@ body:hover #cursor { opacity: 1; }
 
 .modal-desc {
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 17px;
   color: rgba(255,255,255,0.75);
   line-height: 1.7;
   margin-bottom: 24px;
@@ -1451,14 +1461,14 @@ body:hover #cursor { opacity: 1; }
 
 .char-name {
   font-family: var(--font-display);
-  font-size: 28px;
+  font-size: 38px;
   color: var(--white);
   line-height: 1;
 }
 
 .char-title-text {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   color: var(--white);
   opacity: 0.8;
   letter-spacing: 0.15em;
@@ -1479,7 +1489,7 @@ body:hover #cursor { opacity: 1; }
 
 .char-stat-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   color: var(--grey);
   letter-spacing: 0.15em;
   min-width: 80px;
@@ -1580,7 +1590,7 @@ body:hover #cursor { opacity: 1; }
 
 .stat-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   color: var(--grey);
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -1638,7 +1648,7 @@ body:hover #cursor { opacity: 1; }
 
 .skill-pct {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--grey);
   min-width: 36px;
   text-align: right;
@@ -1673,7 +1683,7 @@ body:hover #cursor { opacity: 1; }
 
 .reflection-topic {
   font-family: var(--font-ui);
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.4em;
   color: var(--red);
@@ -1683,7 +1693,7 @@ body:hover #cursor { opacity: 1; }
 
 .reflection-text {
   font-family: var(--font-body);
-  font-size: 17px;
+  font-size: 22px;
   font-weight: 300;
   color: rgba(255,255,255,0.8);
   line-height: 2;
@@ -1691,7 +1701,7 @@ body:hover #cursor { opacity: 1; }
 
 /* ── Future Plans Section ── */
 .future-hero {
-  padding: 60px;
+  padding: 40px;
   background: linear-gradient(135deg, rgba(255,0,51,0.05) 0%, transparent 60%);
   border: 1px solid rgba(255,0,51,0.1);
   margin-bottom: 40px;
@@ -1699,7 +1709,7 @@ body:hover #cursor { opacity: 1; }
 
 .future-message {
   font-family: var(--font-body);
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 300;
   color: rgba(255,255,255,0.85);
   line-height: 1.8;
@@ -1722,7 +1732,7 @@ body:hover #cursor { opacity: 1; }
   background: rgba(255,255,255,0.02);
   border: 1px solid rgba(255,255,255,0.05);
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 19px;
   font-weight: 500;
   color: rgba(255,255,255,0.75);
   transition: all var(--transition-fast);
@@ -1751,7 +1761,7 @@ body:hover #cursor { opacity: 1; }
 
 .filter-btn {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.2em;
   padding: 7px 18px;
   background: transparent;
@@ -1912,6 +1922,32 @@ body:hover #cursor { opacity: 1; }
   color: var(--purple);
   font-size: 10px;
   margin-right: 14px;
+}
+
+.unknown-video-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 9 / 16;
+  border: 2px dashed rgba(155,89,182,0.3);
+  background: rgba(155,89,182,0.04);
+  font-family: var(--font-body);
+  color: rgba(255,255,255,0.6);
+  gap: 16px;
+}
+
+.unknown-video-placeholder .video-icon {
+  font-size: 64px;
+  color: var(--purple);
+  opacity: 0.7;
+}
+
+.unknown-video-placeholder p {
+  font-size: 18px;
+  letter-spacing: 0.1em;
 }
 
 .unknown-back {

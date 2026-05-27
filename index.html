@@ -262,6 +262,27 @@
 
     <div class="menu-version" aria-hidden="true">v3.0 // SENIOR EDITION</div>
 
+    <!-- Vibe Switch Button - Bottom Right -->
+    <button id="vibe-switch-btn" onclick="switchVibe()" style="
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--purple);
+      background: rgba(0,0,0,0.7);
+      border: 1px solid rgba(155,89,182,0.4);
+      padding: 10px 20px;
+      cursor: none;
+      letter-spacing: 0.1em;
+      z-index: 9980;
+      transition: all 0.2s ease;
+      backdrop-filter: blur(4px);
+      white-space: nowrap;
+    " aria-label="Switch music vibe" onmouseenter="this.style.color='var(--white)';this.style.borderColor='var(--purple)';this.style.background='rgba(155,89,182,0.15)'" onmouseleave="this.style.color='var(--purple)';this.style.borderColor='rgba(155,89,182,0.4)';this.style.background='rgba(0,0,0,0.7)'">
+      LET'S SWITCH UP THE VIBE 🎵
+    </button>
+
   </section><!-- /screen-menu -->
 
 
@@ -510,21 +531,6 @@
 
       <button id="unknown-back" class="unknown-back" aria-label="Back to save selection">← RETURN TO SELECT</button>
 
-      <button id="vibe-switch-btn" onclick="switchVibe()" style="
-        margin-top: 20px;
-        font-family: var(--font-mono);
-        font-size: 11px;
-        color: var(--purple);
-        background: transparent;
-        border: 1px solid rgba(155,89,182,0.4);
-        padding: 10px 28px;
-        cursor: none;
-        letter-spacing: 0.2em;
-        transition: all 0.2s ease;
-      " onmouseenter="this.style.color='var(--white)';this.style.borderColor='var(--purple)';this.style.background='rgba(155,89,182,0.1)'"
-         onmouseleave="this.style.color='var(--purple)';this.style.borderColor='rgba(155,89,182,0.4)';this.style.background='transparent'">
-        LET'S SWITCH UP THE VIBE 🎵
-      </button>
     </div>
 
   </div><!-- /screen-unknown -->
@@ -574,6 +580,21 @@
         <div id="modal-year" class="modal-year"></div>
 
         <p id="modal-desc" class="modal-desc"></p>
+
+        <div class="modal-skills-title">TIME INVESTED</div>
+        <div id="modal-time" class="modal-time" style="margin-bottom: 20px;"></div>
+
+        <div class="modal-skills-title">DEVELOPMENT PROCESS</div>
+        <p id="modal-process" class="modal-process" style="margin-bottom: 20px;"></p>
+
+        <div class="modal-skills-title">KEY FEATURES</div>
+        <ul id="modal-features" class="modal-features" style="margin-bottom: 20px;"></ul>
+
+        <div class="modal-skills-title">CHALLENGES OVERCOME</div>
+        <ul id="modal-challenges" class="modal-challenges" style="margin-bottom: 20px;"></ul>
+
+        <div class="modal-skills-title">OUTCOMES & RESULTS</div>
+        <ul id="modal-outcomes" class="modal-outcomes" style="margin-bottom: 20px;"></ul>
 
         <div class="modal-skills-title">TECHNOLOGIES USED</div>
         <div id="modal-techs" class="modal-skills"></div>

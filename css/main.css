@@ -1394,6 +1394,53 @@ body:hover #cursor { opacity: 1; }
   color: var(--red);
 }
 
+/* ── Modal Process & Details ── */
+.modal-process {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+  padding: 12px;
+  background: rgba(255,255,255,0.02);
+  border-left: 2px solid var(--grey-dark);
+}
+
+.modal-time {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--red);
+  letter-spacing: 0.1em;
+  padding: 10px 14px;
+  background: rgba(255,0,51,0.08);
+  border: 1px solid rgba(255,0,51,0.2);
+  display: inline-block;
+}
+
+.modal-features,
+.modal-challenges,
+.modal-outcomes {
+  margin-bottom: 24px;
+  padding-left: 24px;
+}
+
+.modal-features li,
+.modal-challenges li,
+.modal-outcomes li {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.8;
+  margin-bottom: 8px;
+  list-style: disc;
+}
+
+.modal-features li:before,
+.modal-challenges li:before,
+.modal-outcomes li:before {
+  color: var(--red);
+  font-weight: 700;
+}
+
 /* ── About Section ── */
 .about-grid {
   display: grid;

@@ -83,6 +83,11 @@
       "projectLink": "https://jcarmichael9.github.io/Summer-tainment-Site/",
       "reflection": "Through this project, skills in page structuring, styling consistency, and visual storytelling were further developed.",
       "skillsLearned": ["Responsive Design", "Creative Layout", "JavaScript Interactivity", "Visual Storytelling"],
+      "process": "Started by conceptualizing a summer-themed layout with bright, vibrant colors. Built a modular structure with semantic HTML, then layered custom CSS to create dynamic animations. Added JavaScript to handle interactive elements like image galleries and hover effects.",
+      "features": ["Summer activity showcase sections", "Photo gallery with lightbox effects", "Event countdown timer", "Responsive grid layout", "Smooth scroll navigation", "Themed color palette", "Interactive navigation menu"],
+      "challenges": ["Balancing performance with multiple animations", "Ensuring responsiveness across different screen sizes", "Creating smooth transitions without using heavy libraries", "Optimizing image loading times"],
+      "outcomes": ["Successfully created an engaging seasonal experience", "Demonstrated growing design confidence", "Learned importance of planning animations before coding", "Proved ability to create visual impact with pure CSS"],
+      "timeInvested": "18 hours",
       "featured": false
     },
     {
@@ -96,6 +101,11 @@
       "projectLink": "https://jcarmichael9.github.io/secondlookmabecausethefirstonecrashed/",
       "reflection": "Demonstrates persistence in software development by taking lessons learned from earlier attempts and implementing cleaner code structure and improved responsiveness.",
       "skillsLearned": ["Debugging", "Code Refactoring", "Problem-Solving", "Persistence"],
+      "process": "Analyzed the original code to identify structural issues and areas for improvement. Rebuilt from ground up with better HTML semantic structure. Refactored JavaScript to be more modular and maintainable.",
+      "features": ["Complete redesign with improved navigation", "Cleaner layout", "Better visual hierarchy", "Modular JavaScript functions", "Improved error handling", "Better code documentation"],
+      "challenges": ["Understanding what went wrong in the original project", "Deciding what to keep vs rebuild", "Maintaining functionality while improving code quality", "Testing to ensure nothing broke"],
+      "outcomes": ["Successfully rebuilt the project with cleaner code", "Improved code organization and structure", "Learned valuable lessons about planning before building", "Proved persistence in problem-solving"],
+      "timeInvested": "16 hours (8 hours debugging + 8 hours rebuilding)",
       "featured": false
     },
     {
@@ -109,6 +119,11 @@
       "projectLink": "https://jcarmichael9.github.io/spookyghost/",
       "reflection": "Reflects creativity and technical implementation in front-end development, experimentation with animation timing, hover effects, and engaging visual presentation.",
       "skillsLearned": ["CSS Animations", "Hover Effects", "Themed Design", "Interactive Elements"],
+      "process": "Created a spooky visual theme using dark colors, shadows, and ghostly imagery. Built custom CSS animations for floating ghosts, pulsing effects, and eerie transitions. Added JavaScript event listeners for interactive hover states.",
+      "features": ["Animated ghost characters", "Floating animations", "Pulsing glowing effects", "Hover-triggered animations", "Themed color scheme (blacks, purples, oranges)", "Sound effects on interactions", "Responsive background"],
+      "challenges": ["Timing animations to feel organic and spooky", "Preventing animation lag on lower-end devices", "Creating visual appeal without being too dark/unreadable", "Synchronizing multiple animations"],
+      "outcomes": ["Demonstrated creative application of CSS animations", "Showed JavaScript event handling skills", "Created themed user experience that's visually appealing and technically sound", "Built reusable animation patterns"],
+      "timeInvested": "14 hours",
       "featured": false
     },
     {
@@ -122,6 +137,11 @@
       "projectLink": "https://jcarmichael9.github.io/spookyspider/",
       "reflection": "Demonstrates growing confidence in creating themed user experiences while maintaining organized and readable code.",
       "skillsLearned": ["Advanced CSS", "JavaScript Events", "Responsive Graphics", "Code Organization"],
+      "process": "Built upon lessons from Spooky Ghost with improved structure. Created spider-themed graphics using CSS, implemented complex animation sequences, organized code into logical sections for better maintainability.",
+      "features": ["Animated spider crawling mechanics", "Web-building animations", "Interactive click zones that trigger animations", "Themed Halloween aesthetic", "Complex CSS-based graphics", "Organized JavaScript modules", "Smooth 60fps performance"],
+      "challenges": ["Creating realistic spider movement patterns", "Managing multiple overlapping animations", "Ensuring smooth 60fps performance", "Making animations feel natural while being responsive"],
+      "outcomes": ["Successfully refined animation techniques", "Improved code organization significantly", "Learned how to structure JavaScript for maintainability", "Kept complex animations smooth and performant"],
+      "timeInvested": "16 hours",
       "featured": false
     },
     {
@@ -135,6 +155,11 @@
       "projectLink": "https://jcarmichael9.github.io/WorldSalad/",
       "reflection": "Highlights experimentation with both design consistency and dynamic web content while balancing readability and functionality.",
       "skillsLearned": ["Content Organization", "User Engagement", "Layout Design", "Dynamic Content"],
+      "process": "Conceptualized a 'salad' metaphor for mixing different content types. Designed a flexible grid system to accommodate various content pieces. Built interactive sorting and filtering system using JavaScript.",
+      "features": ["Dynamic content filtering", "Grid-based layout system", "Colorful categorization system", "Search functionality", "Sortable content cards", "Smooth transitions between states", "Responsive multi-column layout"],
+      "challenges": ["Deciding how to organize diverse content types", "Creating an intuitive filtering system", "Maintaining visual coherence while being flexible", "Ensuring performance with many DOM elements"],
+      "outcomes": ["Successfully organized complex information in an engaging way", "Learned value of metaphor in design", "Discovered how metaphor guides user understanding", "Built scalable content system"],
+      "timeInvested": "20 hours",
       "featured": false
     },
     {
@@ -148,6 +173,11 @@
       "projectLink": "https://jcarmichael9.github.io/Name-Generator/",
       "reflection": "Demonstrates the ability to build lightweight but engaging applications that respond instantly to user input while maintaining a clean interface.",
       "skillsLearned": ["Arrays", "Random Number Generation", "DOM Manipulation", "Event Handling"],
+      "process": "Built arrays of first names, last names, and middle names. Wrote randomization logic to pick from each array. Created UI to display results and regenerate on user click.",
+      "features": ["Multiple name generation algorithms", "Customizable name categories", "Instant generation", "Copy-to-clipboard functionality", "Name history tracking", "Different name style options", "Smooth UI animations"],
+      "challenges": ["Avoiding duplicate consecutive generations", "Creating good UX for copy-to-clipboard", "Balancing name diversity vs realism", "Organizing code with multiple name arrays"],
+      "outcomes": ["Created a fun, lightweight tool", "Demonstrated core JavaScript concepts effectively", "Proved ability to combine arrays with randomization and DOM manipulation", "Built practical utility"],
+      "timeInvested": "10 hours",
       "featured": true
     },
     {
@@ -161,6 +191,11 @@
       "projectLink": "https://jcarmichael9.github.io/Roshambo/",
       "reflection": "Demonstrates problem-solving abilities and understanding of core programming concepts while creating a polished interactive experience.",
       "skillsLearned": ["Game Logic", "Conditionals", "Score Tracking", "User Feedback"],
+      "process": "Designed game logic using if/else conditionals to determine winners. Implemented score tracking system. Created visual feedback for game outcomes. Built AI opponent with variable difficulty.",
+      "features": ["Working game logic", "AI opponent", "Adjustable difficulty levels", "Score tracking", "Visual win/loss/tie animations", "Game reset functionality", "Responsive button design", "Sound effects", "Round history"],
+      "challenges": ["Implementing unbiased randomization for AI", "Creating engaging AI difficulty levels", "Handling edge cases in game logic", "Making animations match game state", "Performance with frequent updates"],
+      "outcomes": ["Successfully demonstrated conditional logic understanding", "Created engaging interactive experience", "Built AI that plays fairly", "Proved ability to create engaging games"],
+      "timeInvested": "12 hours",
       "featured": true
     },
     {
@@ -174,6 +209,11 @@
       "projectLink": "https://jcarmichael9.github.io/Postcard-generator/",
       "reflection": "Demonstrates understanding of combining user creativity with functional programming concepts to build engaging browser-based tools.",
       "skillsLearned": ["DOM Manipulation", "User Input Handling", "Visual Customization", "Creative Tools"],
+      "process": "Created template postcard designs. Built form controls to let users customize text, colors, and images. Used JavaScript to dynamically update postcard preview as users make changes.",
+      "features": ["Real-time postcard preview", "Customizable text fields", "Color picker for backgrounds and text", "Image upload capability", "Multiple postcard templates", "Download as image", "Share functionality", "Responsive design"],
+      "challenges": ["Real-time DOM updates without lag", "Managing multiple input types", "Exporting to image format", "Managing local file storage", "Ensuring responsive UI during large file operations"],
+      "outcomes": ["Built practical creative tool for users", "Demonstrated advanced DOM manipulation", "Showed understanding of event-driven architecture", "Created polished user experience"],
+      "timeInvested": "15 hours",
       "featured": false
     },
     {
@@ -187,6 +227,11 @@
       "projectLink": "https://jcarmichael9.github.io/to-do-list/",
       "reflection": "Experience gained in creating applications with persistent structure and intuitive usability while emphasizing organized code architecture.",
       "skillsLearned": ["Event Handling", "Data Organization", "Real-Time Updates", "User Interface"],
+      "process": "Designed clean, minimalist UI for task management. Built JavaScript system to handle add, edit, delete, complete operations. Implemented local storage to persist tasks between sessions. Added filtering and sorting features.",
+      "features": ["Add/edit/delete tasks", "Mark tasks complete/incomplete", "Local storage persistence", "Filter by status", "Sort by date/priority", "Dark mode toggle", "Keyboard shortcuts", "Drag-to-reorder functionality", "Task categories", "Due date support"],
+      "challenges": ["Implementing local storage correctly", "Syncing UI with data model", "Handling edge cases (empty lists, special characters)", "Making keyboard navigation intuitive", "Ensuring performance with hundreds of tasks"],
+      "outcomes": ["Created practical, polished productivity tool", "Demonstrated ability to build applications with persistent data", "Built intuitive user experience design", "Proved data management skills"],
+      "timeInvested": "18 hours",
       "featured": true
     },
     {
@@ -200,6 +245,11 @@
       "projectLink": "https://jcarmichael9.github.io/Pres-Website/",
       "reflection": "Demonstrates ability to balance educational content with appealing front-end development practices while maintaining accessibility and readability.",
       "skillsLearned": ["Responsive Design", "Information Architecture", "Content Hierarchy", "Accessibility"],
+      "process": "Researched presidential history and facts. Structured information with semantic HTML for accessibility. Designed responsive layout that works on all screen sizes. Implemented navigation system for easy content access.",
+      "features": ["Responsive multi-column layout", "Semantic HTML structure", "Accessible navigation", "Timeline view", "Biographical information sections", "Image galleries", "Fact boxes", "Print-friendly styling", "Search functionality"],
+      "challenges": ["Organizing large amounts of information clearly", "Ensuring accessibility standards", "Making complex layouts responsive", "Handling images at different resolutions", "Testing across browsers"],
+      "outcomes": ["Successfully balanced educational content with attractive design", "Demonstrated understanding of information architecture", "Met accessibility best practices", "Built maintainable code structure"],
+      "timeInvested": "16 hours",
       "featured": false
     },
     {
@@ -213,6 +263,11 @@
       "projectLink": "https://jcarmichael9.github.io/MonthlyWebsiteGallery/",
       "reflection": "Demonstrates ability to curate multiple projects into a cohesive browsing experience while emphasizing clean navigation and responsive structure.",
       "skillsLearned": ["Gallery Layouts", "Content Curation", "Navigation Design", "Visual Presentation"],
+      "process": "Curated and organized past projects by month. Designed grid-based gallery layout. Built filtering and sorting system. Created project detail pages with descriptions and links.",
+      "features": ["Responsive grid gallery", "Project filtering by date/category", "Lightbox view for project details", "Sorting options", "Search functionality", "Project metadata display", "Thumbnail generation", "Responsive layout for all devices"],
+      "challenges": ["Organizing many projects coherently", "Thumbnail optimization", "Making gallery performant with many images", "Implementing smooth filtering transitions", "Responsive grid on mobile"],
+      "outcomes": ["Created polished portfolio showcase", "Demonstrated understanding of gallery layouts", "Built scalable content curation system", "Proved navigation design skills"],
+      "timeInvested": "14 hours",
       "featured": false
     },
     {
@@ -226,6 +281,11 @@
       "projectLink": "https://jcarmichael9.github.io/Hangman/",
       "reflection": "Strengthened programming fundamentals related to loops, conditionals, arrays, and event-driven design while emphasizing user engagement and gameplay flow.",
       "skillsLearned": ["Game Mechanics", "Loops", "Conditionals", "Arrays", "Event Handling"],
+      "process": "Built word array database. Implemented game logic with letter guessing, wrong guess counting, and win/lose detection. Created hangman drawing progression. Built UI for letter selection.",
+      "features": ["Word selection from category arrays", "Letter guessing with visual feedback", "Progressive hangman drawing", "Incorrect guess counter", "Word progress display", "Hint system", "Difficulty levels", "Game history", "Sound effects"],
+      "challenges": ["Implementing hangman drawing progression", "Managing game state correctly", "Handling duplicate guesses", "Creating engaging word selection", "Ensuring fair difficulty progression"],
+      "outcomes": ["Successfully recreated classic game", "Demonstrated understanding of loops and conditionals", "Built smooth gameplay experience", "Proved game state management skills"],
+      "timeInvested": "13 hours",
       "featured": false
     },
     {
@@ -239,6 +299,11 @@
       "projectLink": "https://jcarmichael9.github.io/State-Facts-Objects-Practice/",
       "reflection": "Demonstrates growing confidence in managing and displaying structured information dynamically within a webpage.",
       "skillsLearned": ["JavaScript Objects", "Arrays", "Data Structures", "Information Display"],
+      "process": "Created object-based data structure for each state with properties like capital, population, area, facts. Built UI to display state information. Implemented search and filter functionality.",
+      "features": ["Object-based state data structure", "Dynamic information display", "Search by state name", "Filter by region", "Fact rotation system", "Visual state information cards", "Comparison tool", "Responsive design"],
+      "challenges": ["Organizing complex data with multiple properties", "Efficiently searching large datasets", "Dynamically updating UI based on data", "Making object structures easy to maintain"],
+      "outcomes": ["Mastered object-oriented data organization", "Built practical system for managing structured information", "Proved ability to organize complex data logically", "Created scalable data structure"],
+      "timeInvested": "12 hours",
       "featured": false
     },
     {
@@ -252,6 +317,11 @@
       "projectLink": "https://jcarmichael9.github.io/starwarspart2/",
       "reflection": "Highlights creative application development while refining technical skills related to event handling and dynamic content rendering.",
       "skillsLearned": ["Creative Design", "Event Handling", "Dynamic Content", "Themed Development"],
+      "process": "Designed Star Wars inspired aesthetic with themed fonts and colors. Built interactive story elements. Created dynamic character displays and dialogue systems.",
+      "features": ["Star Wars visual theme", "Interactive story progression", "Character profiles with dynamic details", "Dialogue system", "Themed background animations", "Interactive buttons and controls", "Sound effects", "Responsive layout"],
+      "challenges": ["Creating cohesive themed experience across entire site", "Managing complex interactive flows", "Creating smooth transitions between story beats", "Ensuring performance with animations"],
+      "outcomes": ["Successfully executed themed experience with high polish", "Demonstrated ability to combine technical skills with creative vision", "Built engaging interactive narrative", "Proved complex interaction management skills"],
+      "timeInvested": "17 hours",
       "featured": false
     },
     {
@@ -265,6 +335,11 @@
       "projectLink": "https://jcarmichael9.github.io/WildcardWebsite/",
       "reflection": "Demonstrates adaptability and willingness to explore unconventional approaches to design and functionality.",
       "skillsLearned": ["Experimentation", "Creative Problem-Solving", "Layout Techniques", "Custom Styling"],
+      "process": "Created experimental testing ground for new techniques and ideas. Tried unconventional layout approaches. Tested new animation and interaction patterns. Documented findings.",
+      "features": ["Multiple experimental sections", "Unconventional layout techniques", "Innovative interaction patterns", "CSS experiments", "JavaScript experiments", "Documentation of findings", "Before/after comparisons", "Performance metrics"],
+      "challenges": ["Balancing experimentation with stability", "Documenting technical findings", "Ensuring experiments remain performant", "Preventing technical debt from experiments"],
+      "outcomes": ["Used as successful learning tool", "Explored new techniques safely", "Identified techniques that became standard in later projects", "Built experimentation pipeline"],
+      "timeInvested": "12 hours",
       "featured": false
     },
     {
@@ -278,6 +353,11 @@
       "projectLink": "https://jcarmichael9.github.io/FlicksByNick/",
       "reflection": "Demonstrates significant growth in creating professional-looking layouts, integrating media-centered themes, and improving user experience design.",
       "skillsLearned": ["Advanced Styling", "Professional Design", "Media Integration", "User Experience"],
+      "process": "Designed professional movie platform interface. Built advanced CSS for polished appearance. Implemented complex media display system. Created intuitive content discovery system.",
+      "features": ["Professional movie showcase layout", "Advanced CSS styling", "Responsive media grid", "Movie filtering and search", "Detailed movie information cards", "Trailer integration", "User ratings display", "Recommendation engine", "Smooth animations"],
+      "challenges": ["Professional-level design polish", "Managing high-resolution media", "Implementing smooth animations at scale", "Creating intuitive content discovery", "Ensuring fast load times with many images"],
+      "outcomes": ["Created professional-looking media platform", "Significantly improved design and UX skills", "Demonstrated ability to integrate external media effectively", "Built scalable media system"],
+      "timeInvested": "22 hours",
       "featured": true
     },
     {
@@ -291,6 +371,11 @@
       "projectLink": "https://jcarmichael9.github.io/Movies/",
       "reflection": "Reflects improved design consistency and stronger technical confidence in building media-based web applications.",
       "skillsLearned": ["Responsive Design", "Media Layouts", "Interactive Features", "Design Consistency"],
+      "process": "Built cinematic-themed interface for movie browsing. Designed responsive layout for all screen sizes. Implemented interactive features like movie filtering and sorting.",
+      "features": ["Cinematic visual theme", "Responsive grid layout", "Movie search and filtering", "Sorting by rating/year/popularity", "Movie detail cards", "Integrated media players", "Ratings system", "Watchlist functionality", "Smooth transitions"],
+      "challenges": ["Maintaining design consistency across responsive breakpoints", "Implementing smooth interactions without performance degradation", "Managing large media libraries efficiently"],
+      "outcomes": ["Built polished media application", "Demonstrated strong design consistency", "Proved ability to handle complex interactive requirements", "Created performant media system"],
+      "timeInvested": "18 hours",
       "featured": true
     },
     {
@@ -304,6 +389,11 @@
       "projectLink": "https://jcarmichael9.github.io/NJIT-Project/",
       "reflection": "Reflects continued growth in project planning, user interface design, and scalable code organization.",
       "skillsLearned": ["Project Planning", "UI Design", "Code Organization", "Technical Documentation"],
+      "process": "Planned project structure and architecture. Built modular, organized code. Focused on scalability and maintainability. Documented code thoroughly for future developers.",
+      "features": ["Well-organized code architecture", "Comprehensive documentation", "Modular JavaScript structure", "Responsive design", "Scalable data structure", "Error handling", "Accessibility compliance", "Performance optimization"],
+      "challenges": ["Planning scalable architecture", "Maintaining code organization at scale", "Writing clear documentation", "Ensuring accessibility standards", "Performance optimization"],
+      "outcomes": ["Successfully demonstrated complex project planning", "Proved understanding of scalability principles", "Built maintainable codebase", "Created comprehensive documentation"],
+      "timeInvested": "20 hours",
       "featured": false
     },
     {
@@ -317,6 +407,11 @@
       "projectLink": "https://frhsdhankh.github.io/ParkingSpotsMHS/",
       "reflection": "Highlights the ability to create solutions with real-world relevance while focusing on accessibility and efficient information management.",
       "skillsLearned": ["Real-World Problem Solving", "Data Presentation", "User Accessibility", "Community Focus"],
+      "process": "Identified real community need for parking management system. Built accessible interface for easy parking information access. Implemented location-based filtering system.",
+      "features": ["Interactive parking map", "Location-based filtering", "Real-time availability updates", "Accessible navigation", "Mobile-friendly design", "Search functionality", "Parking lot information database", "Accessibility compliance"],
+      "challenges": ["Gathering accurate parking data", "Making data display intuitive", "Ensuring high accessibility standards", "Managing real-time data updates", "Performance with complex map interactions"],
+      "outcomes": ["Created practical solution addressing real community need", "Demonstrated ability to combine technical skills with social responsibility", "Built accessible system serving entire school community", "Proved real-world problem solving ability"],
+      "timeInvested": "16 hours",
       "featured": false
     },
     {
@@ -330,6 +425,11 @@
       "projectLink": "https://jcarmichael9.github.io/College-Recruitement-Site/",
       "reflection": "Demonstrates understanding of creating polished, audience-focused websites with clear navigation and engaging presentation.",
       "skillsLearned": ["Branding", "Content Hierarchy", "Persuasive Design", "Professional Presentation"],
+      "process": "Designed professional college recruitment interface. Built persuasive content hierarchy. Created consistent branding throughout. Implemented smooth user journey.",
+      "features": ["Professional branding system", "Persuasive content hierarchy", "Hero sections", "Program showcase", "Testimonials section", "Application portal", "Event calendar", "Responsive design", "Smooth navigation flow"],
+      "challenges": ["Creating persuasive content presentation", "Maintaining brand consistency", "Designing clear content hierarchy", "Optimizing for conversion", "Responsive design complexity"],
+      "outcomes": ["Created persuasive platform designed to engage potential students", "Demonstrated understanding of conversion design principles", "Built professional brand presence", "Proved UI/UX design skills"],
+      "timeInvested": "19 hours",
       "featured": false
     },
     {
@@ -343,6 +443,11 @@
       "projectLink": "https://jcarmichael9.github.io/Vue-Mastery-tutotisl/",
       "reflection": "Reflects a transition from basic front-end development into more advanced and scalable web technologies.",
       "skillsLearned": ["Vue.js", "Reactive Programming", "Component Architecture", "Modern JavaScript"],
+      "process": "Followed Vue.js tutorial series. Built progressively complex examples. Focused on understanding reactive data binding and component communication. Documented learning process.",
+      "features": ["Multiple Vue.js example applications", "Reactive data binding demonstrations", "Component examples", "State management patterns", "Composition patterns", "Directive usage", "Lifecycle hooks", "Computed properties"],
+      "challenges": ["Understanding Vue reactivity system", "Transitioning from vanilla JS thinking", "Managing component state", "Learning new patterns and best practices"],
+      "outcomes": ["Successfully transitioned to modern framework-based development", "Demonstrated ability to learn new technologies quickly", "Built foundation for advanced Vue applications", "Proved modern JavaScript understanding"],
+      "timeInvested": "24 hours (includes learning and documentation)",
       "featured": true
     },
     {
@@ -356,6 +461,11 @@
       "projectLink": "http://jcarmichael9.github.io/Christmas-CarolOke/",
       "reflection": "Demonstrates creativity in combining entertainment concepts with technical implementation while refining front-end styling.",
       "skillsLearned": ["Multimedia Integration", "Creative Design", "Festive Theming", "User Interaction"],
+      "process": "Designed festive holiday theme. Integrated audio playback with visual elements. Built karaoke-style UI for carol singing. Created interactive animations.",
+      "features": ["Holiday visual theme", "Audio playback system", "Lyrics display synchronized with music", "User interaction for song selection", "Festive animations", "Karaoke scoring system", "Song library", "Sharing functionality"],
+      "challenges": ["Synchronizing audio with visual elements", "Audio playback across browsers", "Creating smooth animations during audio playback", "Managing song library efficiently"],
+      "outcomes": ["Created festive, engaging entertainment experience", "Demonstrated advanced multimedia integration skills", "Built polished holiday application", "Proved ability to sync complex interactions"],
+      "timeInvested": "15 hours",
       "featured": false
     },
     {
@@ -369,6 +479,11 @@
       "projectLink": "https://jcarmichael9.github.io/2.04-project/",
       "reflection": "Demonstrates ongoing growth in technical confidence and development workflow.",
       "skillsLearned": ["Programming Fundamentals", "Problem-Solving", "Code Structure", "Responsiveness"],
+      "process": "Built application focused on core programming concepts. Emphasized clean, logical code structure. Prioritized problem-solving approach over fancy features.",
+      "features": ["Well-structured problem-solving code", "Logical function organization", "Clear variable naming", "Comprehensive comments", "Responsive design", "Error handling", "Test cases"],
+      "challenges": ["Solving problems efficiently", "Maintaining clean code structure", "Thinking through edge cases", "Writing clear comments for future reference"],
+      "outcomes": ["Strengthened fundamental programming skills", "Improved code quality significantly", "Enhanced logical thinking processes", "Built clean reference project"],
+      "timeInvested": "13 hours",
       "featured": false
     },
     {
@@ -382,6 +497,11 @@
       "projectLink": "https://jcarmichael9.github.io/1.03things/",
       "reflection": "Highlights the gradual progression from introductory coding exercises to more polished web applications.",
       "skillsLearned": ["JavaScript Basics", "Interactive Features", "Layout Design", "Code Organization"],
+      "process": "Built assignment-based application. Focused on implementing required features correctly. Organized code for clarity. Added interactive enhancements.",
+      "features": ["Core JavaScript implementations", "Interactive features", "Organized layout", "Clear code structure", "Functional requirements met", "User-friendly interface", "Responsive design"],
+      "challenges": ["Understanding assignment requirements", "Implementing features correctly", "Organizing code logically", "Creating user-friendly interface"],
+      "outcomes": ["Successfully reinforced foundational JavaScript concepts", "Built polished application from assignment specifications", "Created well-structured code", "Proved technical fundamentals"],
+      "timeInvested": "10 hours",
       "featured": false
     },
     {
@@ -395,6 +515,11 @@
       "projectLink": "https://jcarmichael9.github.io/1.02-arrays/",
       "reflection": "Demonstrates foundational programming knowledge and the ability to apply data structures in practical scenarios.",
       "skillsLearned": ["Arrays", "Iteration Methods", "Data Manipulation", "Dynamic Content"],
+      "process": "Built application demonstrating various array operations. Focused on different iteration methods (map, filter, reduce). Showed data manipulation in real-time.",
+      "features": ["Array operations demonstrations", "Iteration method examples", "Real-time data updates", "Interactive examples", "Clear code comments", "Multiple use cases"],
+      "challenges": ["Understanding different iteration methods", "Choosing appropriate methods for use cases", "Making examples clear and educational"],
+      "outcomes": ["Solidified understanding of array operations", "Created educational examples for future reference", "Built comprehensive demonstration application", "Proved array mastery"],
+      "timeInvested": "8 hours",
       "featured": false
     },
     {
@@ -408,6 +533,11 @@
       "projectLink": "https://jcarmichael9.github.io/1.01-Functions/",
       "reflection": "Reflects early foundational programming growth and problem-solving ability.",
       "skillsLearned": ["Functions", "Parameters", "Return Values", "Modular Code"],
+      "process": "Built application demonstrating function concepts. Showed parameter passing and return values. Created reusable function libraries.",
+      "features": ["Function examples", "Parameter demonstrations", "Return value examples", "Reusable function library", "Clear function documentation", "Practical use cases"],
+      "challenges": ["Understanding function scope", "Parameters and return values", "Creating reusable functions", "Writing clear documentation"],
+      "outcomes": ["Established strong foundation in function concepts", "Created reusable function library for future projects", "Built comprehensive reference material", "Proved function mastery"],
+      "timeInvested": "8 hours",
       "featured": false
     },
     {
@@ -421,6 +551,11 @@
       "projectLink": "https://jcarmichael9.github.io/2.02-project/",
       "reflection": "Demonstrates continued technical progression and increasing comfort with full front-end development workflows.",
       "skillsLearned": ["Advanced JavaScript", "Interactive Design", "Responsive Development", "Code Architecture"],
+      "process": "Built assignment building on previous project experience. Incorporated advanced JavaScript patterns. Focused on responsive design. Implemented complex interactions.",
+      "features": ["Advanced JavaScript implementations", "Complex interactive features", "Responsive multi-device design", "Clean code architecture", "Optimized performance", "Comprehensive error handling"],
+      "challenges": ["Balancing complexity with maintainability", "Ensuring responsive design at scale", "Implementing smooth interactions", "Managing performance"],
+      "outcomes": ["Successfully demonstrated advanced development skills", "Built complex project with clean architecture", "Maintained good performance", "Proved technical maturity"],
+      "timeInvested": "14 hours",
       "featured": false
     }
   ],
@@ -433,10 +568,10 @@
     { "title": "Mobile Mockups", "category": "Design", "image": "images/gallery-placeholder.svg" }
   ],
   "reflection": {
-    "overall": "Three years in the Web Design Pathway Program taught me discipline, creativity, and problem-solving—skills that now shape my journey in psychology and criminal law. Web design showed me how important it is to understand people’s needs, and criminal defense requires the same empathy, critical thinking, and dedication to protecting the rights and experiences of future clients.",
+    "overall": "Three years in the Web Design Pathway Program taught me discipline, creativity, and problem-solving—skills that now shape my journey in psychology and criminal law. Web design showed me how important it is to understand people's needs, and criminal defense requires the same empathy, critical thinking, and dedication to protecting the rights and experiences of future clients.",
     "challenges": "The hardest moments came from imposter syndrome and learning how to work through difficult problems without giving up. Over time, I realized that challenges are opportunities to grow and gain understanding. That mindset will help me in criminal law, where analyzing behavior, interpreting legal precedent, and navigating the justice system all require patience and strong problem-solving skills.",
     "favorites": "My favorite memory was realizing I could create something meaningful that changes how people experience and interact with the world. That feeling inspired me to pursue a deeper purpose: defending constitutional rights and helping people navigate the criminal justice system with compassion, understanding, and the determination to make a difference.",
-    "transformation": "Web design and psychology have given me a unique perspective by teaching me to understand both systems and human behavior. Through these experiences, I’ve grown into someone who wants to create meaningful change. I’m no longer only building interfaces—I’m preparing to advocate for justice and support people through difficult moments in their lives."
+    "transformation": "Web design and psychology have given me a unique perspective by teaching me to understand both systems and human behavior. Through these experiences, I've grown into someone who wants to create meaningful change. I'm no longer only building interfaces—I'm preparing to advocate for justice and support people through difficult moments in their lives."
   },
   "futurePlans": {
     "college": "Majoring in Psychology at Kean University on a full ride scholarship for 4 years.",

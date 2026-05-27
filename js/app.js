@@ -848,6 +848,11 @@ function openProjectModal(project) {
   const modalSkills = $('#modal-skills');
   const modalRef   = $('#modal-reflection');
   const modalLink  = $('#modal-link');
+  const modalTime  = $('#modal-time');
+  const modalProcess = $('#modal-process');
+  const modalFeatures = $('#modal-features');
+  const modalChallenges = $('#modal-challenges');
+  const modalOutcomes = $('#modal-outcomes');
 
   modalImg.src         = project.image;
   modalImg.alt         = project.title;
@@ -855,6 +860,8 @@ function openProjectModal(project) {
   modalYear.textContent  = `${project.yearLabel} Year — ${project.year}`;
   modalDesc.textContent  = project.description;
   modalRef.textContent   = project.reflection;
+  modalTime.textContent  = project.timeInvested || 'N/A';
+  modalProcess.textContent = project.process || '';
 
   // Render tech tags
   modalTechs.innerHTML = project.technologies
@@ -864,11 +871,36 @@ function openProjectModal(project) {
   modalSkills.innerHTML = project.skillsLearned
     .map(s => `<span class="tech-tag">${s}</span>`).join('');
 
+  // Render features list
+  if (project.features && Array.isArray(project.features)) {
+    modalFeatures.innerHTML = project.features
+      .map(f => `<li>${f}</li>`).join('');
+  } else {
+    modalFeatures.innerHTML = '';
+  }
+
+  // Render challenges list
+  if (project.challenges && Array.isArray(project.challenges)) {
+    modalChallenges.innerHTML = project.challenges
+      .map(c => `<li>${c}</li>`).join('');
+  } else {
+    modalChallenges.innerHTML = '';
+  }
+
+  // Render outcomes list
+  if (project.outcomes && Array.isArray(project.outcomes)) {
+    modalOutcomes.innerHTML = project.outcomes
+      .map(o => `<li>${o}</li>`).join('');
+  } else {
+    modalOutcomes.innerHTML = '';
+  }
+
   modalLink.href = project.projectLink;
 
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
+
 
 function closeModal() {
   const overlay = $('#modal-overlay');
@@ -1272,10 +1304,27 @@ function initVueApp() {
       };
     },
     template: `
-      <div>
-        <div class="unknown-video-placeholder">
-          <div class="video-icon">▶</div>
-          <p>Video Placeholder</p>
+      <div style="margin-top: 24px; max-width: 600px;">
+        <div class="section-eyebrow" style="margin-bottom: 16px">FUTURE ROADMAP</div>
+        <div style="font-family: var(--font-body); font-size: 15px; color: rgba(255,255,255,0.7); line-height: 2;">
+          <div style="margin-bottom: 20px;">
+            <strong style="color: var(--white);">🎓 College:</strong><br/>
+            {{ future.college }}
+          </div>
+          <div style="margin-bottom: 20px;">
+            <strong style="color: var(--white);">⚖️ Career Path:</strong><br/>
+            {{ future.career }}
+          </div>
+          <div style="margin-bottom: 20px;">
+            <strong style="color: var(--white);">🎯 Goals:</strong>
+            <ul style="margin-top: 8px; padding-left: 20px; list-style: disc;">
+              <li v-for="goal in future.goals" :key="goal">{{ goal }}</li>
+            </ul>
+          </div>
+          <div style="padding: 20px; background: rgba(155,89,182,0.1); border-left: 3px solid var(--purple);">
+            <strong style="color: var(--white);">💡 Mission:</strong><br/>
+            <p style="margin-top: 8px;">{{ future.message }}</p>
+          </div>
         </div>
       </div>
     `

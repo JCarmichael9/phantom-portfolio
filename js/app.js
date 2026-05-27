@@ -1275,7 +1275,7 @@ function initVueApp() {
     template: `
       <div>
         <div class="future-hero">
-          <p class="future-message">"{{ future.message }}"</p>
+          <p class="future-message">"{{ future.message }}" - Jared McCain</p>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-bottom:40px" class="future-info-grid">
           <div>

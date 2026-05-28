@@ -98,17 +98,18 @@ function initBgShapes() {
 
 // ── Screen Management ─────────────────────────────────────────
 function showScreen(id) {
-  // Hide all screens
   $$('.screen').forEach(s => {
     s.classList.remove('active');
   });
-
+ 
   APP.currentScreen = id;
   const target = $(`#screen-${id}`);
   if (target) {
+    target.scrollTop = 0;          // ← reset scroll
     target.classList.add('active');
   }
 }
+ 
 
 function triggerGlitch() {
   const overlay = $('.glitch-overlay');
@@ -790,14 +791,13 @@ function animateSkillBars() {
     });
   }, 300);
 }
+// ── REPLACE the showUnknownRoute() function in app.js with this ──
 
-// ── Unknown Route ─────────────────────────────────────────────
 function showUnknownRoute() {
   // Hide ALL screens including non-.screen divs
   $$('.screen').forEach(s => s.classList.remove('active'));
   $('#screen-content')?.classList.remove('active');
 
-  // Force menu off too in case it's lingering
   const menuScreen = $('#screen-menu');
   if (menuScreen) {
     menuScreen.classList.remove('active');
@@ -806,20 +806,71 @@ function showUnknownRoute() {
 
   const unknownScreen = $('#screen-unknown');
   unknownScreen.classList.add('active');
+  unknownScreen.scrollTop = 0; 
   APP.currentScreen = 'unknown';
 
-  gsap.fromTo('.unknown-title',
-    { opacity: 0, scale: 0.8 },
-    { opacity: 1, scale: 1, duration: 1, ease: 'expo.out', delay: 0.3 }
+  // ── Entrance animations ──
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+  tl.fromTo('.ur-file-tag',
+    { opacity: 0, y: -16 },
+    { opacity: 1, y: 0, duration: 0.5, delay: 0.2 }
+  )
+  .fromTo('.ur-title-line',
+    { opacity: 0, x: -50, skewX: -8 },
+    { opacity: 1, x: 0, skewX: 0, duration: 0.55, stagger: 0.1 },
+    '-=0.1'
+  )
+  .fromTo('.ur-divider',
+    { opacity: 0, scaleX: 0 },
+    { opacity: 1, scaleX: 1, duration: 0.5, transformOrigin: 'center' },
+    '-=0.2'
+  )
+  .fromTo('.ur-tagline',
+    { opacity: 0, y: 16 },
+    { opacity: 1, y: 0, duration: 0.5 },
+    '-=0.2'
+  )
+  .fromTo('.ur-stats-row',
+    { opacity: 0, y: 24 },
+    { opacity: 1, y: 0, duration: 0.5 },
+    '-=0.1'
+  )
+  .fromTo('.ur-card',
+    { opacity: 0, y: 40, scale: 0.96 },
+    { opacity: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.12 },
+    '-=0.1'
+  )
+  .fromTo('.ur-carry-item',
+    { opacity: 0, x: -24 },
+    { opacity: 1, x: 0, duration: 0.4, stagger: 0.07 },
+    '-=0.2'
+  )
+  .fromTo('.ur-quote-section',
+    { opacity: 0, y: 30 },
+    { opacity: 1, y: 0, duration: 0.6 },
+    '-=0.1'
+  )
+  .fromTo('.ur-footer',
+    { opacity: 0 },
+    { opacity: 1, duration: 0.5 },
+    '-=0.2'
   );
-  gsap.fromTo('.unknown-message',
-    { opacity: 0, y: 20 },
-    { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.7 }
-  );
-  gsap.fromTo('.unknown-goal',
-    { opacity: 0, x: -30 },
-    { opacity: 1, x: 0, duration: 0.5, stagger: 0.12, ease: 'power3.out', delay: 1 }
-  );
+
+  // Animate the level bars after cards appear
+  setTimeout(() => {
+    // Education card — show partial progress (1 year in)
+    const fills = $$('.ur-card-level-fill');
+    if (fills[0]) fills[0].style.setProperty('--w', '25%');   // 1 of 4 years
+    if (fills[1]) fills[1].style.setProperty('--w', '8%');    // coming soon
+    // Card 3 has no bar, skip
+
+    // Animate the title background text
+    gsap.fromTo('.ur-title-bg-text',
+      { opacity: 0, scale: 1.3 },
+      { opacity: 1, scale: 1, duration: 1.5, ease: 'expo.out' }
+    );
+  }, 800);
 }
 
 // ── Exit Reality ──────────────────────────────────────────────

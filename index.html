@@ -502,43 +502,196 @@
 
   </div><!-- /screen-content -->
 
+<!-- ══════════════════════════════════════════════════════════
+     REPLACE your existing #screen-unknown div with this
+     ══════════════════════════════════════════════════════════ -->
 
-  <!-- ══════════════════════════════════════════════════════════
-       SCREEN 6: UNKNOWN ROUTE
-  ══════════════════════════════════════════════════════════ -->
-  <div id="screen-unknown" role="main" aria-label="Unknown Route - Future">
+<div id="screen-unknown" role="main" aria-label="Unknown Route - Future">
 
-    <div class="unknown-hero">
-      <div class="unknown-eyebrow">UNKNOWN ROUTE // FILE_04</div>
+  <!-- Atmospheric background layers -->
+  <div class="ur-bg" aria-hidden="true">
+    <div class="ur-orb ur-orb-1"></div>
+    <div class="ur-orb ur-orb-2"></div>
+    <div class="ur-orb ur-orb-3"></div>
+    <div class="ur-grid"></div>
+    <div class="ur-scanline"></div>
+  </div>
 
-      <h1 class="unknown-title">The <span style="color:var(--purple)">Future</span></h1>
+  <!-- Floating particles -->
+  <div class="ur-particles" aria-hidden="true">
+    <span class="ur-p"></span><span class="ur-p"></span><span class="ur-p"></span>
+    <span class="ur-p"></span><span class="ur-p"></span><span class="ur-p"></span>
+    <span class="ur-p"></span><span class="ur-p"></span><span class="ur-p"></span>
+    <span class="ur-p"></span><span class="ur-p"></span><span class="ur-p"></span>
+    <span class="ur-p"></span><span class="ur-p"></span><span class="ur-p"></span>
+    <span class="ur-p"></span><span class="ur-p"></span><span class="ur-p"></span>
+  </div>
 
-      <p class="unknown-message">
-        This isn't a save file — it's a blank page. High school taught me how to code,
-        how to design, how to think. But the most important thing it taught me is that
-        I've only just started. The best work is still ahead.
-      </p>
+  <div class="ur-content">
 
-      <!-- Vue renders future goals here -->
-      <div id="vue-unknown"></div>
-
-      <div style="margin-bottom:30px;max-width:500px;width:100%;text-align:left">
-        <div class="section-eyebrow" style="margin-bottom:16px">WHAT I CARRY FORWARD</div>
-        <p style="font-family:var(--font-body);font-size:17px;color:rgba(255,255,255,0.6);line-height:1.8">
-          Three years of problem-solving. The confidence that I can figure things out.
-          A portfolio that proves it. A community of designers and developers who
-          showed me what's possible. And the knowledge that every great website
-          started as a blank file — just like this one did.
-        </p>
+    <!-- ── HERO ── -->
+    <header class="ur-hero">
+      <div class="ur-file-tag">
+        <span class="ur-file-dot"></span>
+        SAVE FILE 04 &nbsp;/&nbsp; UNKNOWN ROUTE
+        <span class="ur-file-dot"></span>
       </div>
 
-      <button id="unknown-back" class="unknown-back" aria-label="Back to save selection">← RETURN TO SELECT</button>
+      <div class="ur-title-wrap">
+        <div class="ur-title-bg-text" aria-hidden="true">FUTURE</div>
+        <h1 class="ur-title">
+          <span class="ur-title-line">THE</span>
+          <span class="ur-title-line ur-title-accent">UNWRITTEN</span>
+          <span class="ur-title-line">CHAPTER</span>
+        </h1>
+      </div>
 
+      <div class="ur-divider">
+        <span class="ur-divider-line"></span>
+        <span class="ur-divider-diamond">◆</span>
+        <span class="ur-divider-line"></span>
+      </div>
+
+      <p class="ur-tagline">
+        This isn't a save file — it's a blank page.<br/>
+        High school taught me how to code, how to design,<br/>
+        how to think. The best work is still ahead.
+      </p>
+    </header>
+
+    <!-- ── STATS ROW ── -->
+    <div class="ur-stats-row">
+      <div class="ur-stat">
+        <span class="ur-stat-num">3</span>
+        <span class="ur-stat-lbl">Years Built</span>
+      </div>
+      <div class="ur-stat-sep">◆</div>
+      <div class="ur-stat">
+        <span class="ur-stat-num">24</span>
+        <span class="ur-stat-lbl">Projects Shipped</span>
+      </div>
+      <div class="ur-stat-sep">◆</div>
+      <div class="ur-stat">
+        <span class="ur-stat-num">1200</span>
+        <span class="ur-stat-lbl">Hours Coded</span>
+      </div>
+      <div class="ur-stat-sep">◆</div>
+      <div class="ur-stat">
+        <span class="ur-stat-num">∞</span>
+        <span class="ur-stat-lbl">Ahead of Me</span>
+      </div>
     </div>
 
-  </div><!-- /screen-unknown -->
+    <!-- ── ROUTE CARDS ── -->
+    <section class="ur-cards-section">
+      <div class="ur-section-label">// NEXT DESTINATION</div>
+      <div class="ur-cards">
 
+        <div class="ur-card">
+          <div class="ur-card-icon">🎓</div>
+          <div class="ur-card-tag">EDUCATION</div>
+          <h3 class="ur-card-title">Kean University</h3>
+          <p class="ur-card-body">Psychology major on a full ride scholarship — understanding the human mind before arguing for it in court.</p>
+          <div class="ur-card-level">
+            <span class="ur-card-level-bar">
+              <span class="ur-card-level-fill" style="--w:0%"></span>
+            </span>
+            <span class="ur-card-level-txt">IN PROGRESS</span>
+          </div>
+          <div class="ur-card-glow"></div>
+        </div>
 
+        <div class="ur-card ur-card--center">
+          <div class="ur-card-icon">⚖️</div>
+          <div class="ur-card-tag">CAREER</div>
+          <h3 class="ur-card-title">Law School<br/>&amp; the Bar</h3>
+          <p class="ur-card-body">Juris Doctor degree → Criminal Defense Attorney. Defending constitutional rights and fighting for people who need it most.</p>
+          <div class="ur-card-level">
+            <span class="ur-card-level-bar">
+              <span class="ur-card-level-fill" style="--w:0%"></span>
+            </span>
+            <span class="ur-card-level-txt">UNLOCKED SOON</span>
+          </div>
+          <div class="ur-card-glow"></div>
+        </div>
+
+        <div class="ur-card">
+          <div class="ur-card-icon">🎯</div>
+          <div class="ur-card-tag">OBJECTIVES</div>
+          <h3 class="ur-card-title">Mission<br/>Objectives</h3>
+          <ul class="ur-card-goals" id="ur-goals-list">
+            <li>Complete psychology degree with honors</li>
+            <li>Excel on the LSAT</li>
+            <li>Attend a top-tier law school</li>
+            <li>Build a career defending rights</li>
+          </ul>
+          <div class="ur-card-glow"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CARRY FORWARD ── -->
+    <section class="ur-carry">
+      <div class="ur-section-label">// WHAT I CARRY FORWARD</div>
+      <div class="ur-carry-grid">
+        <div class="ur-carry-item">
+          <span class="ur-carry-icon">🧠</span>
+          <span class="ur-carry-text">Problem-solving discipline</span>
+        </div>
+        <div class="ur-carry-item">
+          <span class="ur-carry-icon">💻</span>
+          <span class="ur-carry-text">3 years of building</span>
+        </div>
+        <div class="ur-carry-item">
+          <span class="ur-carry-icon">🔥</span>
+          <span class="ur-carry-text">Confidence to figure it out</span>
+        </div>
+        <div class="ur-carry-item">
+          <span class="ur-carry-icon">🌐</span>
+          <span class="ur-carry-text">A portfolio that proves it</span>
+        </div>
+        <div class="ur-carry-item">
+          <span class="ur-carry-icon">🤝</span>
+          <span class="ur-carry-text">Community of creators</span>
+        </div>
+        <div class="ur-carry-item">
+          <span class="ur-carry-icon">📄</span>
+          <span class="ur-carry-text">Every great site starts blank</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── QUOTE ── -->
+    <section class="ur-quote-section">
+      <div class="ur-quote-mark" aria-hidden="true">"</div>
+      <blockquote class="ur-quote">
+        It's never to prove anybody wrong… I like proving my support system right,
+        the people who really believe in me — I like proving them right.
+      </blockquote>
+      <cite class="ur-quote-author">— Jared McCain</cite>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer class="ur-footer">
+      <div class="ur-progress-wrap">
+        <div class="ur-progress-label">
+          <span>SAVE FILE 04</span>
+          <span style="color:var(--purple)">???%</span>
+        </div>
+        <div class="ur-progress-track">
+          <div class="ur-progress-pulse"></div>
+        </div>
+      </div>
+
+      <button id="unknown-back" class="ur-back-btn" aria-label="Back to save selection">
+        <span class="ur-back-arrow">←</span>
+        <span>RETURN TO SELECT</span>
+      </button>
+    </footer>
+
+  </div>
+</div>
   <!-- ══════════════════════════════════════════════════════════
        SCREEN 7: EXIT REALITY (Easter Egg)
   ══════════════════════════════════════════════════════════ -->

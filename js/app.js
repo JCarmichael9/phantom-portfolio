@@ -844,6 +844,7 @@ function openProjectModal(project) {
   const modalTitle = $('#modal-title');
   const modalYear  = $('#modal-year');
   const modalDesc  = $('#modal-desc');
+  const modalDescExtended = $('#modal-desc-extended');
   const modalTechs = $('#modal-techs');
   const modalSkills = $('#modal-skills');
   const modalRef   = $('#modal-reflection');
@@ -859,6 +860,7 @@ function openProjectModal(project) {
   modalTitle.textContent = project.title;
   modalYear.textContent  = `${project.yearLabel} Year — ${project.year}`;
   modalDesc.textContent  = project.description;
+  modalDescExtended.textContent = project.descriptionExtended || '';
   modalRef.textContent   = project.reflection;
   modalTime.textContent  = project.timeInvested || 'N/A';
   modalProcess.textContent = project.process || '';

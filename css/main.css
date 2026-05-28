@@ -1322,6 +1322,17 @@ body:hover #cursor { opacity: 1; }
   margin-bottom: 24px;
 }
 
+.modal-desc-extended {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.8;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: rgba(255,255,255,0.02);
+  border-left: 3px solid rgba(155,89,182,0.3);
+}
+
 .modal-skills-title {
   font-family: var(--font-ui);
   font-size: 10px;
